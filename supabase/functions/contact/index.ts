@@ -3,18 +3,10 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { buildCorsHeaders, getAllowedOrigins, resolveAllowedOrigin } from "../_shared/cors.ts";
 import {
   buildNotificationText,
-  getClientIp,
-  hashValue,
   isJsonContentType,
   parseRecipients,
   validateContactPayload,
 } from "../_shared/contact.ts";
-
-interface RateLimitRow {
-  allowed: boolean;
-  request_count: number;
-  retry_after_seconds: number;
-}
 
 interface SendEmailArgs {
   apiKey: string;
@@ -181,58 +173,16 @@ Deno.serve(async (request) => {
   }
 
   const contact = validation.value;
-  const clientIp = getClientIp(request.headers);
-  const ipHash = await hashValue(clientIp);
 
   const supabase = createClient(supabaseUrl, serviceRoleKey, {
     auth: { persistSession: false },
   });
 
-  const rateLimitResult = await supabase.rpc("enforce_contact_rate_limit", {
-    ip_hash_input: ipHash,
-    request_time: new Date().toISOString(),
-  });
-
-  if (rateLimitResult.error) {
-    return jsonResponse(
-      {
-        ok: false,
-        status: "rate_limit_check_failed",
-        message: "No pudimos validar el límite de envíos. Intentá nuevamente.",
-      },
-      500,
-      corsHeaders,
-    );
-  }
-
-  const rateLimitRow = Array.isArray(rateLimitResult.data)
-    ? rateLimitResult.data[0] as RateLimitRow | undefined
-    : undefined;
-
-  if (!rateLimitRow?.allowed) {
-    const retryAfter = rateLimitRow?.retry_after_seconds ?? 60;
-
-    return jsonResponse(
-      {
-        ok: false,
-        status: "rate_limit_exceeded",
-        message:
-          "Demasiados envíos desde esta IP. Esperá un minuto antes de intentar nuevamente.",
-        retryAfterSeconds: retryAfter,
-      },
-      429,
-      {
-        ...corsHeaders,
-        "Retry-After": String(retryAfter),
-      },
-    );
-  }
-
   const insertResult = await supabase
     .from("contacto")
     .insert([
       {
-        nombreCompleto: contact.nombre,
+        nombrecompleto: contact.nombre,
         email: contact.email,
         telefono: contact.telefono,
         mensaje: contact.mensaje,

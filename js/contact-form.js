@@ -21,6 +21,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const nombreRegex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,120}$/;
     const telefonoRegex = /^[0-9+\s()-]{7,20}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const claveEnvioDiario = 'cde-contact-last-submit-date';
+    const localStorageDisponible = (() => {
+        try {
+            const testKey = '__cde_contact_storage_test__';
+            window.localStorage.setItem(testKey, '1');
+            window.localStorage.removeItem(testKey);
+            return true;
+        } catch {
+            return false;
+        }
+    })();
+
+    const obtenerClaveDiaActual = () => {
+        const ahora = new Date();
+        const anio = ahora.getFullYear();
+        const mes = String(ahora.getMonth() + 1).padStart(2, '0');
+        const dia = String(ahora.getDate()).padStart(2, '0');
+
+        return `${anio}-${mes}-${dia}`;
+    };
+
+    const yaEnvioHoy = () => {
+        if (!localStorageDisponible) {
+            return false;
+        }
+
+        return window.localStorage.getItem(claveEnvioDiario) === obtenerClaveDiaActual();
+    };
+
+    const registrarEnvioExitoso = () => {
+        if (!localStorageDisponible) {
+            return;
+        }
+
+        window.localStorage.setItem(claveEnvioDiario, obtenerClaveDiaActual());
+    };
 
     const setFeedback = (tipo, mensaje) => {
         feedback.textContent = mensaje;
@@ -90,6 +126,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        if (yaEnvioHoy()) {
+            setFeedback('warning', 'Ya enviaste una consulta hoy desde este navegador. Podés volver a intentarlo mañana.');
+            return;
+        }
+
         setLoading(true);
         setFeedback('info', 'Enviando consulta...');
 
@@ -107,6 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const mensaje = payload.message || 'No pudimos procesar tu consulta.';
 
             if (respuesta.ok) {
+                registrarEnvioExitoso();
+
                 if (respuesta.status === 202 || payload.status === 'stored_without_email') {
                     setFeedback('warning', mensaje);
                 } else {
@@ -114,11 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 formulario.reset();
-                return;
-            }
-
-            if (respuesta.status === 429) {
-                setFeedback('error', mensaje);
                 return;
             }
 

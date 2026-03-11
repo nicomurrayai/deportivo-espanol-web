@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hacete socio del Club Deportivo Español. Disfrutá de todos los beneficios y formá parte de nuestra gran familia.">
+    <meta name="keywords" content="hacete socio, club deportivo, membresía, beneficios, inscripción">
+    <title>Hacete Socio - Club Deportivo Español</title>
+    <link rel="icon" href="../img/escudo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        :root {
+            --color-rojo-espana: #AA151B;
+            --color-blanco: #ffffff;
+            --color-negro: #1d1d1d;
+            --color-gris-claro: #f8f9fa;
+            --color-gris: #e9ecef;
+            --color-gris-oscuro: #6c757d;
+            --color-amarillo: #fbff00;
+            --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transicion: all 0.3s ease;
+            --borde-radio: 8px;
+            --fuente-principal: 'Poppins', sans-serif;
+        }
+        html, body {
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            font-family: var(--fuente-principal);
+        }
+        .titulo-principal {
+            font-family: var(--fuente-principal);
+            font-weight: 700;
+        }
+        .subtitulo {
+            font-family: var(--fuente-principal);
+            font-weight: 300;
+        }
+        .titulo-seccion {
+            font-family: var(--fuente-principal);
+            font-weight: 700;
+            color: var(--color-negro);
+        }
+        .texto-introduccion {
+            font-family: var(--fuente-principal);
+            font-weight: 400;
+        }
+        .texto-beneficio {
+            font-family: var(--fuente-principal);
+            font-weight: 400;
+            font-size: 1.1rem;
+            color: var(--color-blanco);
+        }
+        .testimonio p {
+            font-family: var(--fuente-principal);
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 10px;
+            color: var(--color-blanco);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .testimonio cite {
+            font-family: var(--fuente-principal);
+            font-weight: 600;
+        }
+        .campo label {
+            font-family: var(--fuente-principal);
+            font-weight: 600;
+            color: var(--color-blanco);
+        }
+        .campo input,
+        .campo select {
+            font-family: var(--fuente-principal);
+            font-weight: 400;
+            padding: 12px;
+            background-color: var(--color-blanco);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--borde-radio);
+            font-size: 1rem;
+            color: var(--color-negro);
+            transition: var(--transicion);
+        }
+        .boton-asociarme {
+            font-family: var(--fuente-principal);
+            font-weight: 600;
+        }
+        .seccion-socio {
+            padding: 80px 0;
+            background-color: var(--color-blanco);
+            margin-top: 80px;
+            color: var(--color-negro);
+        }
+        .contenido-socio {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .columna-beneficios {
+            background-color: var(--color-rojo-espana);
+            padding: 30px;
+            border-radius: var(--borde-radio);
+            box-shadow: var(--sombra);
+            color: var(--color-blanco);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .lista-beneficios {
+            list-style: none;
+            margin: 20px 0;
+        }
+        .beneficio {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: var(--borde-radio);
+            background-color:var(--color-rojo-espana);
+            color: var(--color-blanco);
+            border: 1px solid var(--color-rojo-espana);
+            transition: all 0.3s ease;
+        }
+        .beneficio:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateX(5px);
+        }
+        .icono-beneficio {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #FFC107;
+        }
+        .seccion-testimonios {
+            margin-top: 40px;
+        }
+        .testimonio {
+            background-color: var(--color-rojo-espana);
+            padding: 20px;
+            border-radius: var(--borde-radio);
+            margin-bottom: 20px;
+            position: relative;
+            color: var(--color-rojo-espana);
+        }
+        .testimonio cite {
+            font-weight: 600;
+            color: var(--color-amarillo);
+            display: block;
+            margin-top: 10px;
+        }
+        .texto-introduccion {
+            color: var(--color-negro);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .contenedor-formulario {
+            background-color: var(--color-rojo-espana);
+            padding: 30px;
+            border-radius: var(--borde-radio);
+            box-shadow: var(--sombra);
+            color: var(--color-blanco);
+        }
+        .formulario-socio {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .campo {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .campo input::placeholder {
+            color: rgba(0, 0, 0, 0.5);
+        }
+        .campo input:focus,
+        .campo select:focus {
+            outline: none;
+            border-color: var(--color-blanco);
+        }
+        .campo select option {
+            background-color: var(--color-blanco);
+            color: var(--color-negro);
+        }
+        .boton-asociarme {
+            background-color:var(--color-negro);
+            color: var(--color-blanco);
+            padding: 14px 28px;
+            border: 2px solid var(--color-rojo-espana);
+            border-radius: var(--borde-radio);
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        .boton-asociarme:hover {
+            background-color: var(--color-negro);
+            color: var(--color-amarillo);
+            border-color: var(--color-negro);
+        }
+        .cabecera .contenedor {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        @media (max-width: 992px) {
+            .contenido-socio {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .seccion-socio {
+                padding: 60px 0;
+            }
+            .columna-beneficios,
+            .contenedor-formulario {
+                padding: 20px;
+            }
+        }
+      
+        @media (max-width: 600px) {
+            .seccion-socio {
+                padding: 30px 0;
+                margin-top: 60px;
+            }
+            .contenido-socio {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                margin-top: 24px;
+            }
+            .columna-beneficios,
+            .contenedor-formulario {
+                padding: 14px;
+                border-radius: 10px;
+                box-shadow: none;
+            }
+            .columna-beneficios {
+                margin-bottom: 18px;
+            }
+            .seccion-planes > div {
+                flex-direction: column !important;
+                gap: 12px !important;
+            }
+            .seccion-planes > div > div {
+                min-width: unset !important;
+                width: 100% !important;
+                padding: 14px !important;
+                font-size: 1em !important;
+            }
+            .titulo-principal,
+            .titulo-seccion {
+                font-size: 1.5em !important;
+                text-align: center;
+            }
+            .subtitulo {
+                font-size: 1.1em !important;
+                text-align: center;
+            }
+            .texto-introduccion {
+                font-size: 1em;
+                margin-bottom: 18px;
+                text-align: center;
+            }
+            .formulario-socio {
+                gap: 14px;
+            }
+            .campo label {
+                font-size: 1em;
+            }
+            .campo input,
+            .campo select {
+                font-size: 1em;
+                padding: 10px;
+            }
+            .boton-asociarme {
+                font-size: 1em;
+                padding: 12px 0;
+                border-radius: 8px;
+            }
+            .campo-boton {
+                margin-top: 8px;
+            }
+            .testimonio {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+            .pie .columnas-footer {
+                flex-direction: column !important;
+                gap: 18px;
+            }
+            .columna-footer {
+                margin-bottom: 10px;
+                text-align: center;
+            }
+            .logo-footer img {
+                width: 60px;
+                height: auto;
+            }
+            .redes-sociales-footer a {
+                font-size: 1.3em;
+                margin: 0 6px;
+            }
+            .copyright {
+                flex-direction: column;
+                gap: 8px;
+                font-size: 0.95em;
+                text-align: center;
+            }
+            .enlaces-legales {
+                flex-direction: column;
+                gap: 4px;
+                margin-top: 6px;
+            }
+            .hero-seccion {
+                min-height: 120px;
+                padding: 24px 0 10px 0;
+                background-size: cover !important;
+            }
+            .hero-seccion .contenedor {
+                padding: 0 8px;
+            }
+            .hero-seccion .titulo-principal {
+                font-size: 2em; 
+                text-align: center;
+            }
+            .hero-seccion .subtitulo {
+                font-size: 1.3em; 
+                text-align: center;
+            }
+        }
+    
+        .hero-seccion {
+            min-height: 220px;
+            padding: 110px 0 30px 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            background-size: cover !important;
+            background-position: center;
+            position: relative;
+        }
+        .hero-seccion .contenedor {
+            padding: 0 16px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-seccion .titulo-principal {
+            color: #fff;
+            font-size: 3em; 
+            margin-bottom: 8px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            text-align: center;
+            font-weight: 700;
+        }
+        .hero-seccion .subtitulo {
+            color: #fff;
+            font-size: 1.7em; 
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            text-align: center;
+            font-weight: 300;
+        }
+        @media (max-width: 600px) {
+            .hero-seccion {
+                min-height: 120px;
+                padding: 24px 0 10px 0;
+                background-size: cover !important;
+            }
+            .hero-seccion .contenedor {
+                padding: 0 8px;
+            }
+            .hero-seccion .titulo-principal {
+                font-size: 2em; 
+                text-align: center;
+            }
+            .hero-seccion .subtitulo {
+                font-size: 1.3em; 
+                text-align: center;
+            }
+        }
+      
+        .hero-interno { display: none !important; }
+    </style>
+</head>
+<body>
+    <header class="cabecera">
+        <div class="contenedor">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/escudo.png" alt="Logo Club Deportivo Español">
+                </a>
+            </div>
+            <nav class="navegacion">
+                <button class="boton-menu" aria-label="Abrir menú">
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                </button>
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="club.html">El Club</a></li>
+                    <li><a href="futbol.html">Fútbol</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="sponsors.html">Sponsors</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="socios.html" class="boton boton-rojo" style="background-color: #AA151B; color: var(--color-amarillo); border: 2px solid #AA151B;">Hacete Socio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+   
+    <section class="hero-seccion" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/placeholder.svg?height=500&width=1920');">
+        <div class="contenedor">
+            <h1 class="titulo-principal">Hacete Socio</h1>
+            <p class="subtitulo">Formá parte de nuestra gran familia</p>
+        </div>
+    </section>
+    <section id="hacete-socio" class="seccion-socio">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">Hacete Socio</h2>
+            
+            <p class="texto-introduccion">
+                Ser parte del Club Deportivo Español es más que pertenecer a una institución: es ser parte de una familia con historia, pasión y futuro.
+            </p>
+            
+            <div class="contenido-socio">
+                <div class="columna-beneficios">
+                    <h3 class="subtitulo">Beneficios:</h3>
+                    
+                    <ul class="lista-beneficios">
+                        <li class="beneficio">
+                            <span class="icono-beneficio"><i class="fas fa-star"></i></span>
+                            <span class="texto-beneficio">Prioridad para inscripciones en actividades</span>
+                        </li>
+                        <li class="beneficio">
+                            <span class="icono-beneficio"><i class="fas fa-gift"></i></span>
+                            <span class="texto-beneficio">Acceso a sorteos y eventos exclusivos</span>
+                        </li>
+                        <li class="beneficio">
+                            <span class="icono-beneficio"><i class="fas fa-vote-yea"></i></span>
+                            <span class="texto-beneficio">Participación en decisiones del club</span>
+                        </li>
+                        <li class="beneficio">
+                            <span class="icono-beneficio"><i class="fas fa-percent"></i></span>
+                            <span class="texto-beneficio">Descuentos en cuotas y productos oficiales</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="seccion-planes" style="margin-top: 40px;">
+                        <h3 class="subtitulo">Planes</h3>
+                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                            <div style="flex:1; min-width: 140px; background: var(--color-blanco); color: var(--color-rojo-espana); border-radius: var(--borde-radio); padding: 20px; text-align: center; box-shadow: var(--sombra); font-weight: 700;">
+                                <div style="font-size: 1.2em; margin-bottom: 10px;">Mayor</div>
+                                <div style="font-size: 2em;">$15.000</div>
+                                <div style="font-size: 0.95em; color: var(--color-negro); font-weight: 400; margin-top: 8px;">por mes</div>
+                            </div>
+                            <div style="flex:1; min-width: 140px; background: var(--color-blanco); color: var(--color-rojo-espana); border-radius: var(--borde-radio); padding: 20px; text-align: center; box-shadow: var(--sombra); font-weight: 700;">
+                                <div style="font-size: 1.2em; margin-bottom: 10px;">Menor</div>
+                                <div style="font-size: 2em;">$10.000</div>
+                                <div style="font-size: 0.95em; color: var(--color-negro); font-weight: 400; margin-top: 8px;">por mes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="columna-formulario">
+                    <div class="contenedor-formulario fondo-rojo">
+                        <h3 class="subtitulo">Formulario de Alta</h3>
+                        
+                        <form class="formulario-socio" id="formulario-socio">
+                            <div class="campo">
+                                <label for="nombre">Nombre completo</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="campo">
+                                <label for="dni">DNI</label>
+                                <input type="number" id="dni" name="dni" required>
+                            </div>
+                            <div class="campo">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="campo">
+                                <label for="categoria">Categoría</label>
+                                <select id="categoria" name="categoria" required>
+                                    <option value="">Seleccionar categoría</option>
+                                    <option value="mayor">Mayor</option>
+                                    <option value="menor">Menor</option>
+                                </select>
+                            </div>
+                            <div class="campo">
+                                <label for="pago">Método de pago</label>
+                                <select id="pago" name="metodo_pago" required>
+                                    <option value="">Seleccionar método</option>
+                                    <option value="transferencia">Transferencia</option>
+                                    <option value="tarjeta">Tarjeta</option>
+                                    <option value="efectivo">Efectivo</option>
+                                </select>
+                            </div>
+                            <div class="campo-boton">
+                                <button type="submit" class="boton-asociarme">Asociarme</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <footer class="pie">
+        <div class="contenedor">
+            <div class="columnas-footer">
+                <div class="columna-footer">
+                    <div class="logo-footer">
+                        <img src="img/escudo.png" alt="Logo Club Deportivo Español">
+                    </div>
+                    <p>Más de 65 años fomentando el deporte y los valores que lo acompañan en nuestra comunidad.</p>
+                    <div class="redes-sociales-footer">
+                        <a href="https://www.facebook.com/CDEspanol1956/?locale=es_LA" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/clubdeportivoespanol/?hl=es" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/c/FuriaEspa%C3%B1olaTV" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="columna-footer">
+                    <h3>Enlaces rápidos</h3>
+                    <ul class="enlaces-footer">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="club.html">El Club</a></li>
+                        <li><a href="futbol.html">Fútbol</a></li>
+                        <li><a href="noticias.html">Noticias</a></li>
+                        <li><a href="socios.html">Socios</a></li>
+                        <li><a href="sponsors.html">Sponsors</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="columna-footer">
+                    <h3>Contacto</h3>
+                    <ul class="info-contacto">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Santiago de Compostela 3801, CABA</li>
+                        <li><i class="fas fa-phone"></i> (011) 4567-8900</li>
+                        <li><i class="fas fa-envelope"></i> info@clubdeportivo.com</li>
+                        <li><i class="fas fa-clock"></i> Lun-Vie: 8:00 - 22:00, Sáb-Dom: 9:00 - 20:00</li>
+                    </ul>
+                </div>
+                
+                <div class="columna-footer">
+                    <h3>Ubicación</h3>
+                    <div style="border-radius: var(--borde-radio); overflow: hidden; height: 200px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.237381788609!2d-58.44916668499998!3d-34.593453980458675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc3e56f2fd6b1%3A0xe8b3e6ded19f5!2sAv.%20Santiago%20de%20Compostela%203801%2C%20CABA!5e0!3m2!1ses!2sar!4v1660000000000!5m2!1ses!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Club Deportivo Español. Todos los derechos reservados.</p>
+                <ul class="enlaces-legales">
+                    <li><a href="terminos-y-condiciones.html">Términos y condiciones</a></li>
+                    <li><a href="privacidad.html">Política de privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const supabaseClient = supabase.createClient(
+    'https://mnwcpllqxqkmdhxdossl.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ud2NwbGxxeHFrbWRoeGRvc3NsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4MDA3MDYsImV4cCI6MjA2MzM3NjcwNn0.dBcLjWA09F7Lpy19SRYdb2bDXFfHscpF3vpHcz-f_F8'
+  );
+  emailjs.init('ZMAY8t_vumV4xa6AO');
+  const formulario = document.getElementById('formulario-socio');
+  let mensaje = document.getElementById('mensaje');
+  if (!mensaje) {
+    mensaje = document.createElement('div');
+    mensaje.id = 'mensaje';
+    mensaje.style.marginTop = '15px';
+    mensaje.style.fontWeight = '600';
+    formulario.appendChild(mensaje);
+  }
+  formulario.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const nombre       = document.getElementById('nombre').value.trim();
+    const dni          = document.getElementById('dni').value.trim();
+    const email        = document.getElementById('email').value.trim();
+    const categoria    = document.getElementById('categoria').value;
+    const metodo_pago  = document.getElementById('pago').value;
+
+    if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,}$/.test(nombre)) {
+      mensaje.innerText = '❌ Ingresá un nombre válido (solo letras y mínimo 3 caracteres).';
+      mensaje.style.color = '#fff';
+      return;
+    }
+
+    // DNI: 7 u 8 dígitos, no puede empezar con 0
+    if (!/^[1-9][0-9]{6,7}$/.test(dni)) {
+      mensaje.innerText = '❌ Ingresá un DNI válido (7 u 8 dígitos, sin ceros iniciales).';
+      mensaje.style.color = '#fff';
+      return;
+    }
+
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      mensaje.innerText = '❌ Ingresá un email válido.';
+      mensaje.style.color = '#fff';
+      return;
+    }
+    if (!categoria || !metodo_pago) {
+      mensaje.innerText = '❌ Seleccioná una categoría y método de pago.';
+      mensaje.style.color = '#fff';
+      return;
+    }
+
+    const boton = formulario.querySelector('.boton-asociarme');
+    boton.disabled = true;
+    boton.innerText = 'Enviando...';
+
+    let { data: dniExistente } = await supabaseClient
+      .from('socios')
+      .select('dni')
+      .eq('dni', dni)
+      .maybeSingle();
+    if (dniExistente) {
+      mensaje.innerText = '❌ Ya existe un socio registrado con ese DNI.';
+      mensaje.style.color = '#fff';
+      boton.disabled = false;
+      boton.innerText = 'Asociarme';
+      return;
+    }
+    let { data: emailExistente } = await supabaseClient
+      .from('socios')
+      .select('email')
+      .eq('email', email)
+      .maybeSingle();
+    if (emailExistente) {
+      mensaje.innerText = '❌ Ya existe un socio registrado con ese email.';
+      mensaje.style.color = '#fff';
+      boton.disabled = false;
+      boton.innerText = 'Asociarme';
+      return;
+    }
+
+    const { data, error } = await supabaseClient
+      .from('socios')
+      .insert([{
+        nombreCompleto: nombre,
+        dni: dni,
+        email: email,
+        categoria: categoria,
+        metodo_pago: metodo_pago
+      }]);
+    if (error) {
+      mensaje.innerText = '❌ Error al guardar: ' + error.message;
+      mensaje.style.color = '#fff';
+      boton.disabled = false;
+      boton.innerText = 'Asociarme';
+      console.error(error);
+      return;
+    }
+
+    // Envío de correo con EmailJS; extrae automáticamente los campos "nombre" y "email" (entre otros) del formulario
+    emailjs.sendForm('service_0k03ypc', 'template_nrw3zqd', formulario)
+      .then((response) => {
+        mensaje.innerText = '✅ ¡Socio registrado con éxito! Te enviamos un correo con los pasos a seguir.';
+        mensaje.style.color = '#fff';
+        formulario.reset();
+        boton.disabled = false;
+        boton.innerText = 'Asociarme';
+      })
+      .catch((err) => {
+        mensaje.innerText = '⚠️ Socio registrado, pero no se pudo enviar el correo.';
+        mensaje.style.color = '#fff';
+        boton.disabled = false;
+        boton.innerText = 'Asociarme';
+        console.error('EmailJS error:', err);
+        if (err && err.text) {
+          alert('Error al enviar el correo: ' + err.text + '\nVerifica en EmailJS que el template y los campos coincidan.');
+        }
+      });
+  });
+});
+</script>
+<script src="js/script.js"></script>
+</body>
+</html>

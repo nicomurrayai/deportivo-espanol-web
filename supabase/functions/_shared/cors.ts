@@ -1,12 +1,4 @@
-const DEFAULT_ALLOWED_ORIGINS = [
-  "https://cde.com.ar",
-  "https://www.cde.com.ar",
-  "http://localhost:5500",
-  "http://127.0.0.1:5500",
-  "http://localhost:5501",
-  "http://127.0.0.1:5501",
-  "null",
-];
+const DEFAULT_ALLOWED_ORIGINS = ["*"];
 
 const DEFAULT_ALLOWED_HEADERS = [
   "authorization",
@@ -18,16 +10,7 @@ const DEFAULT_ALLOWED_HEADERS = [
 const DEFAULT_ALLOWED_METHODS = ["POST", "OPTIONS"];
 
 export function getAllowedOrigins(): string[] {
-  const configuredOrigins = Deno.env.get("CONTACT_ALLOWED_ORIGINS");
-
-  if (!configuredOrigins) {
-    return DEFAULT_ALLOWED_ORIGINS;
-  }
-
-  return configuredOrigins
-    .split(",")
-    .map((origin) => origin.trim())
-    .filter(Boolean);
+  return DEFAULT_ALLOWED_ORIGINS;
 }
 
 export function resolveAllowedOrigin(

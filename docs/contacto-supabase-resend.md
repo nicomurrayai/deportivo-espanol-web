@@ -4,7 +4,7 @@
 
 - Edge Function en `supabase/functions/contact`.
 - Migración para la tabla `contacto`.
-- Migración para rate limiting por IP hasheada.
+- Control diario en frontend vía `localStorage`.
 - Script frontend en `js/contact-form.js`.
 - Correcciones responsive del header en posts.
 
@@ -24,14 +24,12 @@ Definir en Supabase:
 - `RESEND_API_KEY`
 - `RESEND_FROM_EMAIL`
 - `CONTACT_NOTIFICATION_TO`
-- `CONTACT_ALLOWED_ORIGINS`
 - `CONTACT_EMAIL_SUBJECT_PREFIX`
 
 Valores sugeridos:
 
 - `RESEND_FROM_EMAIL=Contacto CDE <contacto@cde.com.ar>`
 - `CONTACT_NOTIFICATION_TO=info@cde.com.ar`
-- `CONTACT_ALLOWED_ORIGINS=https://cde.com.ar,https://www.cde.com.ar,http://localhost:5500,http://127.0.0.1:5500`
 - `CONTACT_EMAIL_SUBJECT_PREFIX=[Consulta Web CDE]`
 
 ## Despliegue
@@ -51,7 +49,6 @@ supabase secrets set \
   RESEND_API_KEY="<resend-api-key>" \
   RESEND_FROM_EMAIL="Contacto CDE <contacto@cde.com.ar>" \
   CONTACT_NOTIFICATION_TO="info@cde.com.ar" \
-  CONTACT_ALLOWED_ORIGINS="https://cde.com.ar,https://www.cde.com.ar,http://localhost:5500,http://127.0.0.1:5500" \
   CONTACT_EMAIL_SUBJECT_PREFIX="[Consulta Web CDE]"
 ```
 
@@ -72,11 +69,11 @@ Si cambia el proyecto de Supabase o se usa otro entorno, actualizar `data-contac
 ## Flujo implementado
 
 1. El usuario envía el formulario.
-2. El frontend valida formato básico y envía JSON al backend.
-3. La Edge Function valida nuevamente.
-4. Se aplica rate limiting de 5 envíos por minuto por IP.
-5. Se guarda la consulta en Supabase.
-6. Se envía la notificación por Resend.
+2. El frontend valida formato básico y verifica en `localStorage` si ese navegador ya envió una consulta hoy.
+3. Si no hubo envío en el día, envía JSON al backend.
+4. La Edge Function valida nuevamente y guarda la consulta en Supabase.
+5. Se envía la notificación por Resend.
+6. Si la respuesta fue exitosa, el frontend guarda la fecha del envío en `localStorage`.
 7. El frontend muestra estado visual claro según el resultado.
 
 ## Casos de respuesta
@@ -84,18 +81,18 @@ Si cambia el proyecto de Supabase o se usa otro entorno, actualizar `data-contac
 - `200`: consulta guardada y correo enviado.
 - `202`: consulta guardada, pero el correo no se envió.
 - `400`: datos inválidos.
-- `429`: rate limit excedido.
-- `500`: error interno al guardar o validar.
+- `500`: error interno al guardar o procesar.
 
 ## Validación manual recomendada
 
 1. Enviar un formulario válido y confirmar fila creada en `contacto`.
 2. Verificar recepción del correo en el destino configurado.
-3. Ejecutar 6 envíos seguidos desde la misma IP y confirmar `429` en el sexto.
+3. Intentar un segundo envío el mismo día desde el mismo navegador y confirmar que el frontend lo bloquea.
 4. Revisar el header de los posts en mobile y tablet.
 
 ## Notas
 
 - El honeypot descarta bots básicos sin mostrar error.
 - Si Resend falla, el usuario no debería reenviar manualmente porque la consulta ya queda persistida.
-- Para pruebas locales, servir el sitio desde `localhost` o `127.0.0.1`; abrir el HTML con `file://` no está contemplado por CORS.
+- La función quedó abierta a cualquier origen, incluyendo `localhost`, otros dominios y navegadores que envíen `Origin: null`.
+- El límite diario en `localStorage` no es una medida de seguridad fuerte: se puede saltear borrando almacenamiento local, usando otro navegador o llamando directo al endpoint.
