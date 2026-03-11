@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias - Club Deportivo Español</title>
+    <link rel="icon" href="../img/escudo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        :root {
+            --color-rojo: #AA151B;
+            --color-blanco: #ffffff;
+            --color-negro: #1d1d1d;
+            --color-gris-claro: #f8f9fa;
+            --color-gris: #e9ecef;
+            --color-gris-oscuro: #6c757d;
+            --color-amarillo: #fbff00;
+            --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transicion: all 0.3s ease;
+            --borde-radio: 8px;
+            --fuente-principal: 'Poppins', sans-serif;
+        }
+        .seccion-noticias {
+            padding: 80px 0;
+            background-color: var(--color-gris-claro);
+            margin-top: 80px;
+        }
+        .contenedor {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .grilla-noticias {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .noticia {
+            background-color: var(--color-blanco);
+            border-radius: var(--borde-radio);
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+        }
+        .noticia:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .imagen-noticia {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .contenido-noticia {
+            padding: 20px;
+        }
+        .fecha-noticia {
+            color: var(--color-gris-oscuro);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        .titulo-noticia {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--color-negro);
+        }
+        .descripcion-noticia {
+            color: var(--color-gris-oscuro);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .boton-leer-mas {
+            display: inline-block;
+            background-color: var(--color-rojo);
+            color: var(--color-blanco);
+            padding: 8px 16px;
+            border-radius: var(--borde-radio);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transicion);
+        }
+        .boton-leer-mas:hover {
+            background-color: var(--color-rojo);
+            color: var(--color-blanco);
+        }
+        @media (max-width: 768px) {
+            .grilla-noticias {
+                grid-template-columns: 1fr;
+            }
+        }
+        html, body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .cabecera .contenedor {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .pie {
+            background-color: var(--color-negro);
+            color: var(--color-blanco);
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+        .columnas-footer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .logo-footer {
+            margin-bottom: 20px;
+        }
+        .redes-sociales-footer {
+            margin-top: 10px;
+        }
+        .redes-sociales-footer a {
+            color: var(--color-blanco);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: var(--transicion);
+        }
+        .redes-sociales-footer a:hover {
+            color: var(--color-rojo);
+        }
+        .enlaces-footer {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .enlaces-footer li {
+            margin-bottom: 10px;
+        }
+        .enlaces-footer a {
+            color: var(--color-blanco);
+            text-decoration: none;
+            transition: var(--transicion);
+        }
+        .enlaces-footer a:hover {
+            color: var(--color-rojo);
+        }
+        .info-contacto {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .info-contacto li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .info-contacto i {
+            margin-right: 10px;
+            color: var(--color-rojo);
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+        .enlaces-legales {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .enlaces-legales li {
+            margin: 0 10px;
+        }
+        .enlaces-legales a {
+            color: var(--color-blanco);
+            text-decoration: none;
+            transition: var(--transicion);
+        }
+        .enlaces-legales a:hover {
+            color: var(--color-rojo);
+        }
+        .mapa-footer {
+            border-radius: var(--borde-radio);
+            overflow: hidden;
+            height: 200px;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .columnas-footer {
+                grid-template-columns: 1fr;
+            }
+        }
+       
+        @media (max-width: 600px) {
+      .seccion-noticias {
+        padding: 30px 0 !important;
+        margin-top: 60px !important;
+      }
+      .contenedor {
+        max-width: 100vw !important;
+        padding: 0 6px !important;
+      }
+      .grilla-noticias {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        margin-top: 18px !important;
+      }
+      .noticia {
+        border-radius: 10px !important;
+      }
+      .imagen-noticia {
+        height: 110px !important;
+      }
+      .contenido-noticia {
+        padding: 10px 6px !important;
+      }
+      .titulo-noticia {
+        font-size: 1.05em !important;
+        margin-bottom: 6px !important;
+      }
+      .descripcion-noticia {
+        font-size: 0.98em !important;
+        margin-bottom: 10px !important;
+      }
+      .boton-leer-mas {
+        width: 100% !important;
+        font-size: 1em !important;
+        padding: 10px 0 !important;
+        margin-top: 6px !important;
+      }
+      .hero-seccion .contenedor {
+        padding: 10px 4px !important;
+      }
+      .titulo-principal {
+        font-size: 1.2rem !important;
+        margin-bottom: 8px !important;
+      }
+      .subtitulo {
+        font-size: 1em !important;
+        margin-bottom: 8px !important;
+      }
+      .pie .contenedor {
+        padding: 0 4px !important;
+      }
+      .columnas-footer {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+      }
+      .columna-footer {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+        text-align: center !important;
+      }
+      .logo-footer img {
+        max-width: 90px !important;
+      }
+      .redes-sociales-footer a {
+        font-size: 1.3em !important;
+        margin: 0 6px !important;
+      }
+      .info-contacto li {
+        font-size: 0.98em !important;
+      }
+      .copyright {
+        flex-direction: column !important;
+        gap: 8px !important;
+        font-size: 0.95em !important;
+        text-align: center !important;
+      }
+      .enlaces-legales {
+        flex-direction: column !important;
+        gap: 4px !important;
+        padding-left: 0 !important;
+      }
+      .enlaces-legales li {
+        margin-bottom: 2px !important;
+      }
+      .pie iframe, .mapa-footer iframe {
+        height: 120px !important;
+      }
+    }
+    </style>
+</head>
+<body>
+    <header class="cabecera">
+        <div class="contenedor">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/escudo.png" alt="Logo Club Deportivo Español">
+                </a>
+            </div>
+            <nav class="navegacion">
+                <button class="boton-menu" aria-label="Abrir menú">
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                </button>
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="club.html">El Club</a></li>
+                    <li><a href="futbol.html">Fútbol</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="sponsors.html">Sponsors</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="socios.html" class="boton boton-rojo" style="background-color: var(--color-rojo); color: var(--color-amarillo); border: 2px solid var(--color-rojo);">Hacete Socio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero-seccion" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/placeholder.svg?height=500&width=1920');">
+        <div class="contenedor">
+            <h1 class="titulo-principal">Noticias</h1>
+            <p class="subtitulo">Mantente al día con las últimas novedades del club</p>
+        </div>
+    </section>
+    <section class="seccion-noticias">
+        <div class="contenedor">
+            <div class="grilla-noticias">
+         
+                <article class="noticia">
+                    <img src="img/noticias/legislatura.jpg" alt="Noticia 1" class="imagen-noticia">
+                    <div class="contenido-noticia">
+                        <div class="fecha-noticia">22 de Mayo, 2025</div>
+                        <h3 class="titulo-noticia">Buscando recuperar nuestra merecida historia</h3>
+                        <p class="descripcion-noticia">Se presentó un proyecto de ley en la legislatura porteña para cuidar nuestro querido predio.</p>
+                        <a href="noticias/restitucion-historica.html" class="boton-leer-mas">Leer más</a>
+                    </div>
+                </article>
+             
+                <article class="noticia">
+                    <img src="img/noticias/nuevo sponsor.jpg" alt="Noticia 2" class="imagen-noticia">
+                    <div class="contenido-noticia">
+                        <div class="fecha-noticia">10 de Marzo, 2024</div>
+                        <h3 class="titulo-noticia">Nuevo sponsor se suma al club</h3>
+                        <p class="descripcion-noticia">El Club Deportivo Español anuncia la incorporación de un nuevo sponsor principal...</p>
+                        <a href="noticias/nuevo-sponsor.html" class="boton-leer-mas">Leer más</a>
+                    </div>
+                </article>
+             
+                <article class="noticia">
+                    <img src="img/noticias/SUM.jpg" alt="Noticia 3" class="imagen-noticia">
+                    <div class="contenido-noticia">
+                        <div class="fecha-noticia">5 de Marzo, 2024</div>
+                        <h3 class="titulo-noticia">Inauguración de nuevo SUM</h3>
+                        <p class="descripcion-noticia">Lss miembros de la Peña 30 de Junio colaboró en la recuperación del SUM debajo de la platea visitante. Leé todos los detalles.
+                        </p>
+                        <a href="noticias/nuevo-SUM.html" class="boton-leer-mas">Leer más</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    <footer class="pie">
+        <div class="contenedor">
+            <div class="columnas-footer">
+                <div class="columna-footer">
+                    <div class="logo-footer">
+                        <img src="img/escudo.png" alt="Logo Club Deportivo Español">
+                    </div>
+                    <p>Más de 65 años fomentando el deporte y los valores que lo acompañan en nuestra comunidad.</p>
+                    <div class="redes-sociales-footer">
+                        <a href="https://www.facebook.com/CDEspanol1956/?locale=es_LA" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/clubdeportivoespanol/?hl=es" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/c/FuriaEspa%C3%B1olaTV" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="columna-footer">
+                    <h3>Enlaces rápidos</h3>
+                    <ul class="enlaces-footer">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="club.html">El Club</a></li>
+                        <li><a href="futbol.html">Fútbol</a></li>
+                        <li><a href="noticias.html">Noticias</a></li>
+                        <li><a href="socios.html">Socios</a></li>
+                        <li><a href="sponsors.html">Sponsors</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="columna-footer">
+                    <h3>Contacto</h3>
+                    <ul class="info-contacto">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Santiago de Compostela 3801, CABA</li>
+                        <li><i class="fas fa-phone"></i> (011) 4567-8900</li>
+                        <li><i class="fas fa-envelope"></i> info@clubdeportivo.com</li>
+                        <li><i class="fas fa-clock"></i> Lun-Vie: 8:00 - 22:00, Sáb-Dom: 9:00 - 20:00</li>
+                    </ul>
+                </div>
+                <div class="columna-footer">
+                    <h3>Ubicación</h3>
+                    <div class="mapa-footer">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.237381788609!2d-58.44916668499998!3d-34.593453980458675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc3e56f2fd6b1%3A0xe8b3e6ded19f5!2sAv.%20Santiago%20de%20Compostela%203801%2C%20CABA!5e0!3m2!1ses!2sar!4v1660000000000!5m2!1ses!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Club Deportivo Español. Todos los derechos reservados.</p>
+                <ul class="enlaces-legales">
+                    <li><a href="terminos-y-condiciones.html">Términos y condiciones</a></li>
+                    <li><a href="privacidad.html">Política de privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

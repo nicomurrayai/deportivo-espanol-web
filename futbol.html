@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fútbol en Club Deportivo Español. Divisiones inferiores, escuela de fútbol, primer equipo y más. Formación deportiva de calidad.">
+    <meta name="keywords" content="fútbol, divisiones inferiores, escuela de fútbol, formación deportiva, entrenamiento">
+    <title>Fútbol - Club Deportivo Español</title>
+    <link rel="icon" href="../img/escudo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        :root {
+            --color-rojo: #AA151B;
+            --color-blanco: #ffffff;
+            --color-negro: #1d1d1d;
+            --color-gris-claro: #f8f9fa;
+            --color-gris: #e9ecef;
+            --color-gris-oscuro: #6c757d;
+            --color-amarillo: #fbff00;
+            --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transicion: all 0.3s ease;
+            --borde-radio: 8px;
+            --fuente-principal: 'Poppins', sans-serif;
+        }
+
+   
+        .categoria {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--color-blanco);
+            border-radius: var(--borde-radio);
+            box-shadow: var(--sombra);
+            padding: 0 0 24px 0;
+            transition: var(--transicion);
+            min-height: 420px;
+        }
+
+        .categoria:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .categoria-imagen {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            border-radius: var(--borde-radio) var(--borde-radio) 0 0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            margin-bottom: 0;
+        }
+
+        .categoria-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .info-categoria {
+            width: 100%;
+            padding: 24px 24px 0 24px;
+            text-align: left;
+        }
+
+        .info-categoria h3 {
+            font-size: 1.5rem;
+            margin: 0 0 10px 0;
+            color: var(--color-rojo);
+        }
+
+        .info-categoria p {
+            margin: 0;
+            color: var(--color-negro);
+            font-size: 1.08rem;
+        }
+
+        .equipo-card {
+            background-color: var(--color-blanco);
+            border-radius: var(--borde-radio);
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+        }
+
+        .equipo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .equipo-imagen {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .equipo-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .equipo-info {
+            padding: 20px;
+        }
+
+        .equipo-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .equipo-info p {
+            margin-bottom: 15px;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .staff-card {
+            background-color: var(--color-blanco);
+            border-radius: var(--borde-radio);
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            text-align: center;
+        }
+
+        .staff-imagen {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .staff-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .staff-info {
+            padding: 20px;
+        }
+
+        .staff-info h3 {
+            margin-bottom: 5px;
+        }
+
+        .staff-cargo {
+            color: var(--color-rojo);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .calendario {
+            background-color: var(--color-blanco);
+            border-radius: var(--borde-radio);
+            padding: 30px;
+            box-shadow: var(--sombra);
+        }
+
+        .partido {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--color-gris);
+        }
+
+        .partido:last-child {
+            border-bottom: none;
+        }
+
+        .partido-fecha {
+            font-weight: 600;
+            color: var(--color-rojo);
+            width: 100px;
+        }
+
+        .partido-equipos {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .partido-local, .partido-visitante {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .partido-vs {
+            font-weight: 700;
+            color: var(--color-gris-oscuro);
+        }
+
+        .partido-info {
+            width: 100px;
+            text-align: right;
+        }
+
+       
+        .cargando {
+            text-align: center;
+            padding: 20px;
+            font-style: italic;
+            color: var(--color-gris-oscuro);
+        }
+
+        .error-mensaje {
+            text-align: center;
+            padding: 20px;
+            color: var(--color-rojo);
+            background-color: rgba(213, 0, 0, 0.1);
+            border-radius: var(--borde-radio);
+        }
+
+        .ganador {
+            color: var(--color-verde);
+            font-weight: 700;
+        }
+
+        .perdedor {
+            color: var(--color-rojo);
+            font-weight: 400;
+        }
+
+        .empate {
+            color: var(--color-gris-oscuro);
+            font-weight: 600;
+        }
+
+        .categorias-lista {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        @media (max-width: 900px) {
+            .categorias-lista {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .categoria {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .icono-categoria {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .partido {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .partido-fecha, .partido-info {
+                width: 100%;
+                text-align: center;
+            }
+
+            .partido-api-equipos, .resultado-api-equipos {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .partido-api-equipo, .resultado-api-equipo {
+                width: 100%;
+            }
+
+            .partido-api-vs, .resultado-api-score {
+                margin: 10px 0;
+            }
+
+            .partido-api-info, .resultado-api-info {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+        }
+
+        
+    @media (max-width: 600px) {
+      .equipo-presentacion {
+        flex-direction: column !important;
+        gap: 18px !important;
+      }
+      .equipo-presentacion > div {
+        min-width: 0 !important;
+        width: 100% !important;
+      }
+      .categorias-lista {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+        margin-bottom: 18px !important;
+      }
+      .categoria-imagen {
+        height: 120px !important;
+      }
+      .info-categoria {
+        padding: 10px 6px 0 6px !important;
+      }
+      .escuela-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        margin-bottom: 18px !important;
+      }
+      .equipo-imagen {
+        height: 110px !important;
+      }
+      .equipo-info {
+        padding: 10px 6px !important;
+      }
+      .escuela-info {
+        padding: 12px 6px !important;
+        font-size: 0.98em !important;
+        margin-bottom: 18px !important;
+      }
+      .staff-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      .staff-imagen {
+        height: 110px !important;
+      }
+      .staff-info {
+        padding: 10px 6px !important;
+      }
+      .titulo-seccion {
+        font-size: 1.3rem !important;
+        margin-bottom: 18px !important;
+        padding-bottom: 8px !important;
+      }
+      .descripcion-seccion {
+        font-size: 1em !important;
+        margin-bottom: 10px !important;
+      }
+      .centrado {
+        width: 100% !important;
+        text-align: center !important;
+      }
+      .boton, .boton-celeste, .boton-rojo {
+        width: 100% !important;
+        font-size: 1em !important;
+        padding: 12px 0 !important;
+        margin: 8px 0 !important;
+      }
+      .pie .contenedor {
+        padding: 0 4px !important;
+      }
+      .columnas-footer {
+        flex-direction: column !important;
+        gap: 18px !important;
+      }
+      .columna-footer {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+        text-align: center !important;
+      }
+      .logo-footer img {
+        max-width: 90px !important;
+      }
+      .redes-sociales-footer a {
+        font-size: 1.3em !important;
+        margin: 0 6px !important;
+      }
+      .info-contacto li {
+        font-size: 0.98em !important;
+      }
+      .copyright {
+        flex-direction: column !important;
+        gap: 8px !important;
+        font-size: 0.95em !important;
+        text-align: center !important;
+      }
+      .enlaces-legales {
+        flex-direction: column !important;
+        gap: 4px !important;
+        padding-left: 0 !important;
+      }
+      .enlaces-legales li {
+        margin-bottom: 2px !important;
+      }
+      .pie iframe {
+        height: 120px !important;
+      }
+    }
+    </style>
+</head>
+<body>
+    <header class="cabecera">
+        <div class="contenedor">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/escudo.png" alt="Logo Club Deportivo Español">
+                </a>
+            </div>
+            <nav class="navegacion">
+                <button class="boton-menu" aria-label="Abrir menú">
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                </button>
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="club.html">El Club</a></li>
+                    <li><a href="futbol.html">Fútbol</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="sponsors.html">Sponsors</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="socios.html" class="boton boton-rojo" style="background-color: var(--color-rojo); color: var(--color-amarillo); border: 2px solid var(--color-rojo);">Hacete Socio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero-seccion" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('');">
+        <div class="contenedor">
+            <h1 class="titulo-principal">Fútbol</h1>
+            <p class="subtitulo">Formación deportiva de calidad desde las primeras etapas</p>
+        </div>
+    </section>
+    <section class="seccion fondo-blanco">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">Primer Equipo</h2>
+            <p class="descripcion-seccion">Nuestro equipo principal compite en la Primera División C del fútbol argentino</p>
+            
+            <div class="equipo-presentacion" style="display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 40px;">
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="img/futbol/primer-equipo.png" alt="Primer Equipo" style="width: 100%; border-radius: var(--borde-radio); box-shadow: var(--sombra);">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 class="titulo-subseccion">Temporada 2025</h3>
+                    <p>Nuestro primer equipo afronta la temporada 2025 con el objetivo de consolidarse en los primeros puestos de la tabla y luchar por el campeonato. Con una mezcla de jugadores experimentados y jóvenes talentos surgidos de nuestras divisiones inferiores, el plantel dirigido por el entrenador Javier Martínez busca desarrollar un fútbol ofensivo y vistoso.</p>
+                    <p>El equipo va a estar entrenando siempre, preparándose física y tácticamente para los partidos que se disputan los fines de semana en el Estadio España.</p>
+                    <div style="margin-top: 20px;">
+                        <a href="plantel.html" class="boton boton-rojo">Conocé al plantel</a>
+                    </div>
+                </div>
+            </div>
+            
+
+    </section>
+    <section class="seccion fondo-gris">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">Divisiones Inferiores</h2>
+            <p class="descripcion-seccion">Formamos jugadores desde las primeras etapas con un enfoque integral</p>
+            
+            <div class="texto-introduccion" style="margin-bottom: 40px;">
+                <p>En el Club Deportivo Español apostamos al desarrollo deportivo y humano de nuestros chicos, con entrenadores capacitados y una estructura profesional. Nuestro objetivo es formar no solo buenos jugadores, sino también buenas personas, inculcando valores como el respeto, el trabajo en equipo y el esfuerzo.</p>
+            </div>
+            
+            <div class="categorias-lista" style="margin-bottom: 40px;">
+                <div class="categoria">
+                    <div class="categoria-imagen">
+                        <img src="img/futbol/reserva.jpg" alt="Reserva" style="object-fit: cover; object-position: top;">
+                    </div>
+                    <div class="info-categoria">
+                        <h3>Reserva</h3>
+                        <p>Equipo de transición entre juveniles y primera división. Compite en la Liga de Reserva de la AFA.</p>
+                    </div>
+                </div>
+                <div class="categoria">
+                    <div class="categoria-imagen">
+                        <img src="img/futbol/juveniles.jpg" alt="Juveniles">
+                    </div>
+                    <div class="info-categoria">
+                        <h3>Juveniles</h3>
+                        <p>Formación avanzada para jugadores de 13 a 17 años. Participación en torneos oficiales y amistosos.</p>
+                    </div>
+                </div>
+                <div class="categoria">
+                    <div class="categoria-imagen">
+                        <img src="img/futbol/infantiles.jpg" alt="Infantiles">
+                    </div>
+                    <div class="info-categoria">
+                        <h3>Infantiles</h3>
+                        <p>Desarrollo formativo para niños de 6 a 12 años. Enfoque en el desarrollo técnico y valores deportivos.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="texto-final" style="font-size: 1.1rem; font-weight: 600; margin-bottom: 30px; text-align: center;">
+                <p>Contamos con espacios para entrenar Fútbol 5 y Fútbol 11, con canchas de césped natural y sintético.</p>
+            </div>
+            
+            <div class="centrado">
+                <a href="contacto.html" class="boton boton-rojo">Quiero más información</a>
+            </div>
+        </div>
+    </section>
+    <section class="seccion fondo-blanco">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">Fútbol 5</h2>
+            <p class="descripcion-seccion">Para niños que quieran iniciarse en el deporte</p>
+            
+            <div class="escuela-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                <div class="equipo-card">
+                    <div class="equipo-imagen">
+                        <img src="img/el club/baby chcos.jpg" alt="Escuela Inicial">
+                    </div>
+                    <div class="equipo-info">
+                        <h3>Escuela Inicial</h3>
+                        <p>Iniciación al deporte a través de juegos y actividades lúdicas que desarrollan la psicomotricidad.s</p>
+                        <p><strong>Horarios:</strong> Sábados de 10:00 a 11:30 hs.</p>
+                    </div>
+                </div>
+                
+                <div class="equipo-card">
+                    <div class="equipo-imagen">
+                        <img src="img/el club/baby chiquitos.jpg" alt="Escuela Formativa">
+                    </div>
+                    <div class="equipo-info">
+                        <h3>Escuela Formativa</h3>
+                        <p>Aprendizaje de fundamentos tácticos básicos. Perfeccionamiento técnico. Competencia en torneos.</p>
+                        <p><strong>Horarios:</strong> Sábados de 11:30 a 13:00 hs.</p>
+                    </div>
+                </div>
+                
+                <div class="equipo-card">
+                    <div class="equipo-imagen">
+                        <img src="img/el club/futsal.jpg" alt="Escuela Avanzada">
+                    </div>
+                    <div class="equipo-info">
+                        <h3>Futsal</h3>
+                        <p>Perfeccionamiento técnico y táctico para los que ya tienen experiencia en el deporte.</p>
+                        <p><strong>Horarios:</strong> Sábados de 13:00 a 14:30 hs.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="escuela-info" style="background-color: var(--color-gris); padding: 30px; border-radius: var(--borde-radio); margin-bottom: 40px; text-align: center;">
+                <h3 class="titulo-subseccion">Información General</h3>
+                <ul style="list-style: none; padding: 0; display: inline-block; text-align: left;">
+                    <li style="margin-bottom: 10px; display: flex; align-items: center;">
+                        <i class="fas fa-check texto-rojo" style="margin-right: 10px;"></i>
+                        <span>Grupos reducidos con atención personalizada</span>
+                    </li>
+                    <li style="margin-bottom: 10px; display: flex; align-items: center;">
+                        <i class="fas fa-check texto-rojo" style="margin-right: 10px;"></i>
+                        <span>Profesores especializados en formación infantil</span>
+                    </li>
+                    <li style="margin-bottom: 10px; display: flex; align-items: center;">
+                        <i class="fas fa-check texto-rojo" style="margin-right: 10px;"></i>
+                        <span>Instalaciones seguras y adaptadas para niños</span>
+                    </li>
+                    <li style="margin-bottom: 10px; display: flex; align-items: center;">
+                        <i class="fas fa-check texto-rojo" style="margin-right: 10px;"></i>
+                        <span>Encuentros amistosos con otras escuelas</span>
+                    </li>
+                    <li style="margin-bottom: 10px; display: flex; align-items: center;">
+                        <i class="fas fa-check texto-rojo" style="margin-right: 10px;"></i>
+                        <span>Informes periódicos de evolución</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="centrado">
+                <a href="contacto.html" class="boton boton-celeste">Inscribir a mi hijo/a</a>
+            </div>
+        </div>
+    </section>
+    <section class="seccion fondo-gris">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">Staff Técnico</h2>
+            <p class="descripcion-seccion">Profesionales comprometidos con la formación deportiva de calidad</p>
+            
+            <div class="staff-grid">
+                <div class="staff-card">
+                    <div class="staff-imagen">
+                        <img src="img/futbol/coach 1.png" alt="Director Técnico">
+                    </div>
+                    <div class="staff-info">
+                        <h3>Javier Martínez</h3>
+                        <span class="staff-cargo">Director Técnico Primer Equipo</span>
+                        <p>Ex jugador profesional con amplia experiencia en dirección técnica. Al frente del primer equipo desde 2022.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card">
+                    <div class="staff-imagen">
+                        <img src="img/futbol/coach 2.png" alt="Coordinador Divisiones Inferiores">
+                    </div>
+                    <div class="staff-info">
+                        <h3>Miguel Sánchez</h3>
+                        <span class="staff-cargo">Coordinador Divisiones Inferiores</span>
+                        <p>Licenciado en Educación Física con especialización en formación deportiva. Coordina el trabajo de todas las categorías formativas.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card">
+                    <div class="staff-imagen">
+                        <img src="img/futbol/coach 3.png" alt="Director Escuela de Fútbol">
+                    </div>
+                    <div class="staff-info">
+                        <h3>Laura Gómez</h3>
+                        <span class="staff-cargo">Directora Escuela de Fútbol</span>
+                        <p>Especialista en iniciación deportiva infantil. Responsable de la escuela de fútbol para niños y niñas de 4 a 12 años.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card">
+                    <div class="staff-imagen">
+                        <img src="img/futbol/coach 4.png" alt="Preparador Físico">
+                    </div>
+                    <div class="staff-info">
+                        <h3>Carlos Ramírez</h3>
+                        <span class="staff-cargo">Preparador Físico</span>
+                        <p>Licenciado en Alto Rendimiento Deportivo. Responsable de la preparación física de todas las categorías.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="pie">
+        <div class="contenedor">
+            <div class="columnas-footer">
+                <div class="columna-footer">
+                    <div class="logo-footer">
+                        <img src="img/escudo.png" alt="Logo Club Deportivo Español">
+                    </div>
+                    <p>Más de 65 años fomentando el deporte y los valores que lo acompañan en nuestra comunidad.</p>
+                    <div class="redes-sociales-footer">
+                        <a href="https://www.facebook.com/CDEspanol1956/?locale=es_LA" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/clubdeportivoespanol/?hl=es" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/c/FuriaEspa%C3%B1olaTV" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="columna-footer">
+                    <h3>Enlaces rápidos</h3>
+                    <ul class="enlaces-footer">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="club.html">El Club</a></li>
+                        <li><a href="futbol.html">Fútbol</a></li>
+                        <li><a href="noticias.html">Noticias</a></li>
+                        <li><a href="socios.html">Socios</a></li>
+                        <li><a href="sponsors.html">Sponsors</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="columna-footer">
+                    <h3>Contacto</h3>
+                    <ul class="info-contacto">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Santiago de Compostela 3801, CABA</li>
+                        <li><i class="fas fa-phone"></i> (011) 4567-8900</li>
+                        <li><i class="fas fa-envelope"></i> info@clubdeportivo.com</li>
+                        <li><i class="fas fa-clock"></i> Lun-Vie: 8:00 - 22:00, Sáb-Dom: 9:00 - 20:00</li>
+                    </ul>
+                </div>
+                
+        <div class="columna-footer">
+            <h3>Ubicación</h3>
+            <div style="border-radius: var(--borde-radio); overflow: hidden; height: 200px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.237381788609!2d-58.44916668499998!3d-34.593453980458675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc3e56f2fd6b1%3A0xe8b3e6ded19f5!2sAv.%20Santiago%20de%20Compostela%203801%2C%20CABA!5e0!3m2!1ses!2sar!4v1660000000000!5m2!1ses!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Club Deportivo Español. Todos los derechos reservados.</p>
+                <ul class="enlaces-legales">
+                    <li><a href="terminos-y-condiciones.html">Términos y condiciones</a></li>
+                    <li><a href="privacidad.html">Política de privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+    <script>
+  
+    document.addEventListener('DOMContentLoaded', function() {
+        function animarAparicion(selector) {
+            const elementos = document.querySelectorAll(selector);
+            const observer = new window.IntersectionObserver((entradas) => {
+                entradas.forEach(entrada => {
+                    if (entrada.isIntersecting) {
+                        entrada.target.classList.add('aparece');
+                        observer.unobserve(entrada.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            elementos.forEach(el => observer.observe(el));
+        }
+        animarAparicion('.categoria');
+        animarAparicion('.equipo-card');
+        animarAparicion('.staff-card');
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Club Deportivo Español - Institución deportiva y social con más de 65 años de historia. Fútbol, actividades sociales y culturales para toda la familia.">
+    <meta name="keywords" content="club deportivo, fútbol, deportes, actividades sociales, socios">
+    <title>Club Deportivo Español - Inicio</title>
+    <link rel="icon" href="../img/escudo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+      
+        :root {
+            --color-rojo: #AA151B;
+            --color-blanco: #ffffff;
+            --color-negro: #1d1d1d;
+            --color-gris-claro: #f8f9fa;
+            --color-gris: #e9ecef;
+            --color-gris-oscuro: #6c757d;
+            --color-amarillo: #fbff00;
+            --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transicion: all 0.3s ease;
+            --borde-radio: 8px;
+            --fuente-principal: 'Poppins', sans-serif;
+        }
+        html, body {
+            font-family: 'Poppins', sans-serif;
+        }
+      
+        .tarjetas-grid {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .tarjeta {
+            width: 400px;
+            height: 320px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: var(--sombra);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: var(--transicion);
+        }
+        .tarjeta-imagen {
+            width: 100%;
+            height: 120px;
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 20px 20px 0 0;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .tarjeta-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .tarjeta-contenido {
+            padding: 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .tarjeta-titulo {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        .tarjeta-texto {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            flex: 1;
+        }
+        .tarjeta-enlace {
+            display: inline-block;
+            background-color: var(--color-rojo);
+            color: var(--color-blanco);
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: var(--transicion);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .tarjeta-enlace:hover {
+            background-color: var(--color-rojo);
+            color: var(--color-blanco);
+        }
+        @media (max-width: 800px) {
+            .tarjetas-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .tarjeta {
+                width: 98vw;
+                max-width: 420px;
+                height: auto;
+                border-radius: 20px;
+            }
+            .tarjeta-imagen {
+                height: 180px;
+                border-radius: 20px 20px 0 0;
+            }
+        }
+        .seccion.fondo-blanco .contenedor {
+            max-width: 1400px;
+        }
+        
+     
+        .cabecera .contenedor {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .slider {
+            border-radius: 20px;
+            overflow: hidden;
+            min-height: 380px;
+        }
+        .slide {
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            min-height: 380px;
+            border-radius: 20px;
+        }
+        @media (max-width: 800px) {
+            .slider, .slide {
+                border-radius: 12px;
+                min-height: 220px;
+            }
+        }
+      
+        @media (max-width: 600px) {
+      .slider, .slide {
+        border-radius: 10px !important;
+        min-height: 140px !important;
+      }
+      .slide .contenedor {
+        padding: 10px 4px !important;
+      }
+      .titulo-principal {
+        font-size: 1.2rem !important;
+        margin-bottom: 8px !important;
+      }
+      .subtitulo {
+        font-size: 1em !important;
+        margin-bottom: 8px !important;
+      }
+      .botones-hero {
+        flex-direction: column !important;
+        gap: 8px !important;
+      }
+      .boton, .boton-celeste, .boton-rojo, .boton-blanco {
+        width: 100% !important;
+        font-size: 1em !important;
+        padding: 12px 0 !important;
+        margin: 6px 0 !important;
+      }
+      .controles-slider {
+        flex-direction: row !important;
+        gap: 8px !important;
+        margin-top: 6px !important;
+      }
+      .indicadores-slider {
+        gap: 4px !important;
+      }
+      .indicador {
+        width: 10px !important;
+        height: 10px !important;
+      }
+      .tarjetas-grid {
+        flex-direction: column !important;
+        gap: 12px !important;
+        align-items: center !important;
+      }
+      .tarjeta {
+        width: 98vw !important;
+        max-width: 420px !important;
+        height: auto !important;
+        border-radius: 12px !important;
+      }
+      .tarjeta-imagen {
+        height: 110px !important;
+        border-radius: 12px 12px 0 0 !important;
+      }
+      .tarjeta-contenido {
+        padding: 10px 6px !important;
+      }
+      .tarjeta-titulo {
+        font-size: 1em !important;
+      }
+      .tarjeta-texto {
+        font-size: 0.95em !important;
+      }
+      .tarjeta-enlace {
+        width: 100% !important;
+        font-size: 1em !important;
+        padding: 10px 0 !important;
+        margin-top: 6px !important;
+      }
+      .seccion.fondo-blanco .contenedor {
+        max-width: 100vw !important;
+        padding: 0 6px !important;
+      }
+      .seccion.fondo-blanco > .contenedor[style] {
+        flex-direction: column !important;
+        gap: 18px !important;
+        align-items: stretch !important;
+      }
+      .sponsors-grid {
+        flex-direction: column !important;
+        gap: 12px !important;
+        align-items: center !important;
+      }
+      .sponsor-card {
+        width: 100% !important;
+        max-width: 350px !important;
+        margin: 0 auto !important;
+      }
+      .sponsor-logo img {
+        max-width: 100px !important;
+        height: auto !important;
+      }
+      .centrado {
+        width: 100% !important;
+        text-align: center !important;
+      }
+      .pie .contenedor {
+        padding: 0 4px !important;
+      }
+      .columnas-footer {
+        flex-direction: column !important;
+        gap: 18px !important;
+      }
+      .columna-footer {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+        text-align: center !important;
+      }
+      .logo-footer img {
+        max-width: 90px !important;
+      }
+      .redes-sociales-footer a {
+        font-size: 1.3em !important;
+        margin: 0 6px !important;
+      }
+      .info-contacto li {
+        font-size: 0.98em !important;
+      }
+      .copyright {
+        flex-direction: column !important;
+        gap: 8px !important;
+        font-size: 0.95em !important;
+        text-align: center !important;
+      }
+      .enlaces-legales {
+        flex-direction: column !important;
+        gap: 4px !important;
+        padding-left: 0 !important;
+      }
+      .enlaces-legales li {
+        margin-bottom: 2px !important;
+      }
+      .pie iframe {
+        height: 120px !important;
+      }
+    }
+    </style>
+</head>
+<body>
+    <header class="cabecera">
+        <div class="contenedor">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/escudo.png" alt="Logo Club Deportivo Español">
+                </a>
+            </div>
+            <nav class="navegacion">
+                <button class="boton-menu" aria-label="Abrir menú">
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                </button>
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="club.html">El Club</a></li>
+                    <li><a href="futbol.html">Fútbol</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="sponsors.html">Sponsors</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="socios.html" class="boton boton-rojo" style="background-color: var(--color-rojo); color: #fbff00; border: 2px solid var(--color-rojo);">Hacete Socio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="slider">
+            <div class="slide actual" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/inicio/estadio españa.png') no-repeat center center;">
+                <div class="contenedor">
+                    <h1 class="titulo-principal">Club Deportivo Español</h1>
+                    <p class="subtitulo">Más de 65 años fomentando el deporte y los valores que lo acompañan</p>
+                    <div class="botones-hero">
+                        <a href="club.html" class="boton boton-rojo">Conocé nuestra historia</a>
+                        <a href="socios.html" class="boton boton-celeste">Hacete socio</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" style="background: linear-gradient(rgba(81, 81, 81, 0.5), rgba(81, 81, 81, 0.5)), url('img/inicio/foto fubtol.jpg') no-repeat center center;">
+                <div class="contenedor">
+                    <h1 class="titulo-principal">Fútbol</h1>
+                    <p class="subtitulo">Fútbol profesional y formación deportiva de calidad desde las primeras etapas</p>
+                    <div class="botones-hero">
+                        <a href="futbol.html" class="boton boton-rojo">Conocé nuestros equipos</a>
+                        <a href="socios.html" class="boton boton-celeste">Sumate al club</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" style="background: linear-gradient(rgba(81, 81, 81, 0.5), rgba(80, 80, 80, 0.5)), url('img/noticias/legislatura.jpg') no-repeat center center;">
+                <div class="contenedor">
+                    <h1 class="titulo-principal">Noticias</h1>
+                    <p class="subtitulo">Enterate de las últimas novedades</p>
+                    <div class="botones-hero">
+                        <a href="noticias.html" class="boton boton-rojo">Descubrí más</a>
+                        <a href="socios.html" class="boton boton-celeste">Hacete socio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="controles-slider">
+            <button class="control-prev" aria-label="Anterior slide"><i class="fas fa-chevron-left"></i></button>
+            <div class="indicadores-slider">
+                <button class="indicador activo" aria-label="Ir al slide 1"></button>
+                <button class="indicador" aria-label="Ir al slide 2"></button>
+                <button class="indicador" aria-label="Ir al slide 3"></button>
+            </div>
+            <button class="control-next" aria-label="Siguiente slide"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+
+    <section class="seccion fondo-blanco">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">Destacados</h2>
+            <p class="descripcion-seccion">Conocé las últimas novedades de nuestro club</p>
+            
+            <div class="tarjetas-grid">
+                <div class="tarjeta">
+                    <div class="tarjeta-imagen">
+                        <img src="img/noticias/SUM.jpg" alt="Noticia 1">
+                    </div>
+                    <div class="tarjeta-contenido">
+                        <span class="tarjeta-categoria">Socios</span>
+                        <h3 class="tarjeta-titulo">Nuevo SUM</h3>
+                        <p class="tarjeta-texto">La peña 30 de Junio inauguró el nuevo SUM debajo de la platea visitante</p>
+                        <a href="noticias/nuevo-SUM.html" class="tarjeta-enlace">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="tarjeta">
+                    <div class="tarjeta-imagen">
+                        <img src="img/noticias/legislatura.jpg" alt="Noticia 2">
+                    </div>
+                    <div class="tarjeta-contenido">
+                        <span class="tarjeta-categoria">Institucional</span>
+                        <h3 class="tarjeta-titulo">Proyecto de restitución histórica</h3>
+                        <p class="tarjeta-texto">Se presentó un proyecto de ley para cuidar lo más preciado: nuestro predio</p>
+                        <a href="noticias/restitucion-historica.html" class="tarjeta-enlace">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="tarjeta">
+                    <div class="tarjeta-imagen">
+                        <img src="img/noticias/nuevo sponsor.jpg" alt="Noticia 3">
+                    </div>
+                    <div class="tarjeta-contenido">
+                        <span class="tarjeta-categoria">Institucional</span>
+                        <h3 class="tarjeta-titulo">Nuevo sponsor se suma al club</h3>
+                        <p class="tarjeta-texto">El Club Deportivo Español anuncia la incorporación de un nuevo sponsor principal.</p>
+                        <a href="noticias/nuevo-sponsor.html" class="tarjeta-enlace">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+    <section class="seccion fondo-blanco">
+        <div class="contenedor" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+            <div style="flex: 1; min-width: 300px; background: var(--color-rojo); color: var(--color-blanco); border-radius: 20px; padding: 40px 30px; display: flex; flex-direction: column; align-items: flex-start;">
+                <h2 class="titulo-seccion" style="color: var(--color-blanco);">Hacete Socio</h2>
+                <p class="descripcion-seccion" style="color: var(--color-blanco);">Disfrutá de todos los beneficios que tenemos para vos</p>
+                <ul style="list-style: none; padding: 0; margin: 0 0 30px 0;">
+                    <li style="margin-bottom: 24px; display: flex; align-items: flex-start; gap: 12px;">
+                        <span style="color: var(--color-blanco); font-size: 1.2em; margin-top: 4px;"><i class="fas fa-check-circle"></i></span>
+                        <div>
+                            <strong style="color: var(--color-blanco); font-size: 1.1em;">Acceso a todas las instalaciones</strong>
+                            <div style="color: var(--color-blanco); font-weight: 400;">Gimnasio, pileta, canchas y espacios recreativos.</div>
+                        </div>
+                    </li>
+                    <li style="margin-bottom: 24px; display: flex; align-items: flex-start; gap: 12px;">
+                        <span style="color: var(--color-blanco); font-size: 1.2em; margin-top: 4px;"><i class="fas fa-check-circle"></i></span>
+                        <div>
+                            <strong style="color: var(--color-blanco); font-size: 1.1em;">Descuentos en actividades</strong>
+                            <div style="color: var(--color-blanco); font-weight: 400;">Precios especiales en todas nuestras actividades y talleres.</div>
+                        </div>
+                    </li>
+                    <li style="margin-bottom: 24px; display: flex; align-items: flex-start; gap: 12px;">
+                        <span style="color: var(--color-blanco); font-size: 1.2em; margin-top: 4px;"><i class="fas fa-check-circle"></i></span>
+                        <div>
+                            <strong style="color: var(--color-blanco); font-size: 1.1em;">Eventos exclusivos</strong>
+                            <div style="color: var(--color-blanco); font-weight: 400;">Participá de eventos y actividades solo para socios.</div>
+                        </div>
+                    </li>
+                    <li style="margin-bottom: 24px; display: flex; align-items: flex-start; gap: 12px;">
+                        <span style="color: var(--color-blanco); font-size: 1.2em; margin-top: 4px;"><i class="fas fa-check-circle"></i></span>
+                        <div>
+                            <strong style="color: var(--color-blanco); font-size: 1.1em;">Descuentos en comercios</strong>
+                            <div style="color: var(--color-blanco); font-weight: 400;">Beneficios en comercios adheridos de la zona.</div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="centrado" style="width: 100%;">
+                    <a href="socios.html" class="boton boton-blanco" style="background: var(--color-blanco); color: var(--color-rojo); border: 2px solid var(--color-blanco); width: 100%; max-width: 260px; margin: 0 auto; display: block;">Conocé los planes</a>
+                </div>
+            </div>
+            <div style="flex: 1; min-width: 300px; display: flex; justify-content: center; align-items: center; min-height: 350px; border-radius: var(--borde-radio); background: var(--color-blanco);">
+                <img src="img/inicio/carnet de socio.png" alt="Modelo Carnet de Socio" style="max-width: 100%; max-height: 320px; border-radius: 12px;">
+            </div>
+        </div>
+    </section>
+
+
+    <section class="seccion fondo-blanco">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">Nuestros Main Sponsors</h2>
+            <p class="descripcion-seccion">Empresas que confían en nosotros</p>
+            
+            <div class="sponsors-grid" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <img src="img/sponsors/dsi constructora.png" alt="DSI Constructora">
+                    </div>
+                    <div class="sponsor-info">
+                        <h3>DSI Constructora</h3>
+                        <p>Construyendo el futuro junto al club</p>
+                    </div>
+                </div>
+                
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <img src="img/sponsors/enerre logo.png" alt="Enerre">
+                    </div>
+                    <div class="sponsor-info">
+                        <h3>Enerre</h3>
+                        <p>Vistiendo en todos los partidos a cada jugador del equipo</p>
+                    </div>
+                </div>
+                
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <img src="img/sponsors/new light sport logo.png" alt="New Light Sport">
+                    </div>
+                    <div class="sponsor-info">
+                        <h3>New Light Sport</h3>
+                        <p>Representación, análisis y valor para las inferiores de nuestra institución</p>
+                    </div>
+                </div>
+                
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <img src="img/sponsors/san jorge logo.avif" alt="San Jorge">
+                    </div>
+                    <div class="sponsor-info">
+                        <h3>San Jorge</h3>
+                        <p>Apoyando el desarrollo deportivo desde sus inicios</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="centrado">
+                <a href="sponsors.html" class="boton boton-celeste">Convertite en sponsor</a>
+            </div>
+        </div>
+    </section>
+
+  
+    <footer class="pie">
+        <div class="contenedor">
+            <div class="columnas-footer">
+                <div class="columna-footer">
+                    <div class="logo-footer">
+                        <img src="img/escudo.png" alt="Logo Club Deportivo Español">
+                    </div>
+                    <p>Más de 65 años fomentando el deporte y los valores que lo acompañan en nuestra comunidad.</p>
+                    <div class="redes-sociales-footer">
+                        <a href="https://www.facebook.com/CDEspanol1956/?locale=es_LA" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/clubdeportivoespanol/?hl=es" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/c/FuriaEspa%C3%B1olaTV" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="columna-footer">
+                    <h3>Enlaces rápidos</h3>
+                    <ul class="enlaces-footer">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="club.html">El Club</a></li>
+                        <li><a href="futbol.html">Fútbol</a></li>
+                        <li><a href="noticias.html">Noticias</a></li>
+                        <li><a href="socios.html">Socios</a></li>
+                        <li><a href="sponsors.html">Sponsors</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="columna-footer">
+                    <h3>Contacto</h3>
+                    <ul class="info-contacto">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Santiago de Compostela 3801, CABA</li>
+                        <li><i class="fas fa-phone"></i> (011) 4567-8900</li>
+                        <li><i class="fas fa-envelope"></i> info@clubdeportivo.com</li>
+                        <li><i class="fas fa-clock"></i> Lun-Vie: 8:00 - 22:00, Sáb-Dom: 9:00 - 20:00</li>
+                    </ul>
+                </div>
+                
+                <div class="columna-footer">
+                    <h3>Ubicación</h3>
+                    <div style="border-radius: var(--borde-radio); overflow: hidden; height: 200px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.237381788609!2d-58.44916668499998!3d-34.593453980458675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc3e56f2fd6b1%3A0xe8b3e6ded19f5!2sAv.%20Santiago%20de%20Compostela%203801%2C%20CABA!5e0!3m2!1ses!2sar!4v1660000000000!5m2!1ses!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Club Deportivo Español. Todos los derechos reservados.</p>
+                <ul class="enlaces-legales">
+                    <li><a href="terminos-y-condiciones.html">Términos y condiciones</a></li>
+                    <li><a href="privacidad.html">Política de privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+   
+    document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.control-prev');
+        const nextBtn = document.querySelector('.control-next');
+        const indicadores = document.querySelectorAll('.indicador');
+        let actual = 0;
+        let intervalo;
+
+        function mostrarSlide(idx) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('actual', i === idx);
+            });
+            indicadores.forEach((ind, i) => {
+                ind.classList.toggle('activo', i === idx);
+            });
+            actual = idx;
+        }
+
+        function siguienteSlide() {
+            let idx = (actual + 1) % slides.length;
+            mostrarSlide(idx);
+        }
+        function anteriorSlide() {
+            let idx = (actual - 1 + slides.length) % slides.length;
+            mostrarSlide(idx);
+        }
+        function irASlide(idx) {
+            mostrarSlide(idx);
+        }
+        function iniciarAutoSlide() {
+            intervalo = setInterval(siguienteSlide, 6000);
+        }
+        function detenerAutoSlide() {
+            clearInterval(intervalo);
+        }
+
+        nextBtn.addEventListener('click', () => {
+            siguienteSlide();
+            detenerAutoSlide();
+            iniciarAutoSlide();
+        });
+        prevBtn.addEventListener('click', () => {
+            anteriorSlide();
+            detenerAutoSlide();
+            iniciarAutoSlide();
+        });
+        indicadores.forEach((ind, i) => {
+            ind.addEventListener('click', () => {
+                irASlide(i);
+                detenerAutoSlide();
+                iniciarAutoSlide();
+            });
+        });
+
+        mostrarSlide(0);
+        iniciarAutoSlide();
+    });
+    </script>
+</body>
+</html>

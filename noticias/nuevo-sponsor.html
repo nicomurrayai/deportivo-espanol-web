@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo sponsor se suma al club - Club Deportivo Español</title>
+    <link rel="icon" href="../img/escudo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        :root {
+            --color-rojo: #AA151B;
+            --color-blanco: #ffffff;
+            --color-negro: #1d1d1d;
+            --color-gris-claro: #f8f9fa;
+            --color-gris: #e9ecef;
+            --color-gris-oscuro: #6c757d;
+            --color-amarillo: #ffd700;
+            --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transicion: all 0.3s ease;
+            --borde-radio: 8px;
+            --fuente-principal: 'Poppins', sans-serif;
+        }
+
+        .seccion-noticia {
+            padding: 80px 0;
+            background-color: var(--color-gris-claro);
+            margin-top: 80px;
+        }
+
+        .seccion-noticia .contenedor {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .noticia-completa {
+            background-color: var(--color-blanco);
+            border-radius: var(--borde-radio);
+            overflow: hidden;
+            box-shadow: var(--sombra);
+        }
+
+        .imagen-principal {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .contenido-noticia {
+            padding: 40px;
+        }
+
+        .fecha-noticia {
+            color: var(--color-gris-oscuro);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .titulo-noticia {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--color-negro);
+        }
+
+        .texto-noticia {
+            color: var(--color-negro);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .texto-noticia p {
+            margin-bottom: 20px;
+        }
+
+        .boton-volver {
+            display: inline-block;
+            background-color: var(--color-rojo);
+            color: var(--color-blanco);
+            padding: 10px 20px;
+            border-radius: var(--borde-radio);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transicion);
+            margin-top: 20px;
+        }
+
+        .boton-volver:hover {
+            background-color: var(--color-rojo);
+            color: var(--color-blanco);
+        }
+
+        /* Mejoras para móviles */
+        @media (max-width: 600px) {
+          .seccion-noticia {
+            padding: 30px 0;
+            margin-top: 60px;
+          }
+                    .seccion-noticia .contenedor {
+            max-width: 100vw;
+            padding: 0 6px;
+          }
+          .noticia-completa {
+            border-radius: 0;
+            box-shadow: none;
+          }
+          .imagen-principal {
+            height: 180px;
+            border-radius: 0;
+          }
+          .contenido-noticia {
+            padding: 10px 4px 18px 4px;
+          }
+          .titulo-noticia {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+          }
+          .fecha-noticia {
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+          }
+          .texto-noticia {
+            font-size: 0.98rem;
+            margin-bottom: 18px;
+          }
+          .boton-volver {
+            width: 100%;
+            text-align: center;
+            padding: 12px 0;
+            font-size: 1rem;
+            margin-top: 10px;
+          }
+          .pie .contenedor {
+            padding: 0 4px;
+          }
+          .columnas-footer {
+            flex-direction: column;
+            gap: 18px;
+          }
+          .columna-footer {
+            width: 100%;
+            margin-bottom: 10px;
+            text-align: center;
+          }
+          .logo-footer img {
+            max-width: 90px;
+          }
+          .redes-sociales-footer a {
+            font-size: 1.3em;
+            margin: 0 6px;
+          }
+          .info-contacto li {
+            font-size: 0.98em;
+          }
+          .copyright {
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.95em;
+            text-align: center;
+          }
+          .enlaces-legales {
+            flex-direction: column;
+            gap: 4px;
+            padding-left: 0;
+          }
+          .enlaces-legales li {
+            margin-bottom: 2px;
+          }
+          .pie iframe {
+            height: 120px !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+            .imagen-principal {
+                height: 300px;
+            }
+
+            .contenido-noticia {
+                padding: 20px;
+            }
+
+            .titulo-noticia {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+  <header class="cabecera">
+        <div class="contenedor">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../img/escudo.png" alt="Logo Club Deportivo Español">
+                </a>
+            </div>
+            <nav class="navegacion">
+                <button class="boton-menu" aria-label="Abrir menú">
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                </button>
+                <ul class="menu">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../club.html">El Club</a></li>
+                    <li><a href="../futbol.html">Fútbol</a></li>
+                    <li><a href="../noticias.html">Noticias</a></li>
+                    <li><a href="../sponsors.html">Sponsors</a></li>
+                    <li><a href="../contacto.html">Contacto</a></li>
+                    <li><a href="../socios.html" class="boton boton-rojo" style="background-color: var(--color-rojo); color: var(--color-amarillo); border: 2px solid var(--color-rojo);">Hacete Socio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <section class="seccion-noticia">
+        <div class="contenedor">
+            <article class="noticia-completa">
+                <img src="../img/noticias/nuevo sponsor.jpg" alt="Nuevo sponsor" class="imagen-principal">
+                <div class="contenido-noticia">
+                    <div class="fecha-noticia">10 de Marzo, 2024</div>
+                    <h1 class="titulo-noticia">Nuevo sponsor se suma al club</h1>
+                    <div class="texto-noticia">
+                        <p>El Club Deportivo Español se complace en anunciar la incorporación de un nuevo sponsor principal que fortalecerá nuestro proyecto deportivo y social. Esta alianza estratégica representa un importante paso en el crecimiento institucional y nos permitirá seguir mejorando nuestras instalaciones y programas deportivos.</p>
+                        
+                        <p>El nuevo patrocinador, una empresa líder en su sector, ha mostrado un gran compromiso con el desarrollo del deporte local y los valores que representa nuestro club. Esta colaboración no solo beneficiará a nuestros equipos de fútbol, sino que también impactará positivamente en todas las áreas del club.</p>
+                        
+                        <p>Durante la presentación oficial, el presidente del club destacó la importancia de esta alianza: "Estamos muy orgullosos de sumar a nuestro proyecto a una empresa que comparte nuestros valores y visión. Esta colaboración nos permitirá seguir creciendo y ofreciendo mejores oportunidades a nuestros socios y deportistas."</p>
+                        
+                        <p>Como parte de esta nueva alianza, se implementarán mejoras en las instalaciones deportivas, se renovará el equipamiento de los equipos y se desarrollarán nuevos programas de formación deportiva. Además, se crearán espacios de visibilidad para el sponsor en el estadio y en los uniformes de los equipos.</p>
+                        
+                        <p>Esta incorporación refuerza el compromiso del Club Deportivo Español con la excelencia deportiva y el desarrollo de la comunidad. Seguimos trabajando para ofrecer lo mejor a nuestros socios y deportistas, y esta nueva alianza es un paso más en esa dirección.</p>
+                    </div>
+                    <a href="../noticias.html" class="boton-volver">Volver a Noticias</a>
+                </div>
+            </article>
+        </div>
+    </section>
+    <footer class="pie">
+        <div class="contenedor">
+            <div class="columnas-footer">
+                <div class="columna-footer">
+                    <div class="logo-footer">
+                        <img src="../img/escudo.png" alt="Logo Club Deportivo Español">
+                    </div>
+                    <p>Más de 65 años fomentando el deporte y los valores que lo acompañan en nuestra comunidad.</p>
+                    <div class="redes-sociales-footer">
+                        <a href="https://www.facebook.com/CDEspanol1956/?locale=es_LA" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/clubdeportivoespanol/?hl=es" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/c/FuriaEspa%C3%B1olaTV" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="columna-footer">
+                    <h3>Enlaces rápidos</h3>
+                    <ul class="enlaces-footer">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../club.html">El Club</a></li>
+                        <li><a href="../futbol.html">Fútbol</a></li>
+                        <li><a href="../noticias.html">Noticias</a></li>
+                        <li><a href="../socios.html">Socios</a></li>
+                        <li><a href="../sponsors.html">Sponsors</a></li>
+                        <li><a href="../contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="columna-footer">
+                    <h3>Contacto</h3>
+                    <ul class="info-contacto">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Santiago de Compostela 3801, CABA</li>
+                        <li><i class="fas fa-phone"></i> (011) 4567-8900</li>
+                        <li><i class="fas fa-envelope"></i> info@clubdeportivo.com</li>
+                        <li><i class="fas fa-clock"></i> Lun-Vie: 8:00 - 22:00, Sáb-Dom: 9:00 - 20:00</li>
+                    </ul>
+                </div>
+                
+                <div class="columna-footer">
+                    <h3>Ubicación</h3>
+                    <div style="border-radius: var(--borde-radio); overflow: hidden; height: 200px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.237381788609!2d-58.44916668499998!3d-34.593453980458675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc3e56f2fd6b1%3A0xe8b3e6ded19f5!2sAv.%20Santiago%20de%20Compostela%203801%2C%20CABA!5e0!3m2!1ses!2sar!4v1660000000000!5m2!1ses!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Club Deportivo Español. Todos los derechos reservados.</p>
+                <ul class="enlaces-legales">
+                    <li><a href="../terminos-y-condiciones.html">Términos y condiciones</a></li>
+                    <li><a href="../privacidad.html">Política de privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>
