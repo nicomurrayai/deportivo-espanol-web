@@ -145,16 +145,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             const payload = await respuesta.json().catch(() => ({}));
+            const mensajeExito = 'Gracias por escribirnos. Recibimos tu consulta y en breve te vamos a estar respondiendo.';
             const mensaje = payload.message || 'No pudimos procesar tu consulta.';
 
             if (respuesta.ok) {
                 registrarEnvioExitoso();
 
-                if (respuesta.status === 202 || payload.status === 'stored_without_email') {
-                    setFeedback('warning', mensaje);
-                } else {
-                    setFeedback('success', mensaje);
-                }
+                setFeedback('success', mensajeExito);
 
                 formulario.reset();
                 return;
