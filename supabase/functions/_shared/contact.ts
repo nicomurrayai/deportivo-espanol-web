@@ -154,6 +154,73 @@ export function buildNotificationText(payload: ContactPayload): string {
   ].join("\n");
 }
 
+export function buildConfirmationText(payload: ContactPayload): string {
+  return [
+    `Hola ${payload.nombre},`,
+    "",
+    "Recibimos tu consulta y en breve te vamos a responder.",
+    "",
+    "Este fue el mensaje que nos enviaste:",
+    payload.mensaje,
+    "",
+    "Si queres agregar algo mas, podes responder este correo.",
+    "",
+    "El Equipo de Club Deportivo Español",
+  ].join("\n");
+}
+
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/\n/g, "<br>");
+}
+
+export function buildConfirmationHtml(payload: ContactPayload): string {
+  const nombre = escapeHtml(payload.nombre);
+  const mensaje = escapeHtml(payload.mensaje);
+
+  return `<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f4;font-family:Arial,Helvetica,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f4f4;padding:32px 0;">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff;border-radius:8px;overflow:hidden;">
+        <tr>
+          <td align="center" style="background-color:#AA151B;padding:24px;">
+            <img src="cid:club-logo" alt="Club Deportivo Español" width="80" style="display:block;" />
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:32px 24px;">
+            <h2 style="color:#1d1d1d;margin:0 0 16px;">Hola ${nombre},</h2>
+            <p style="color:#333;font-size:15px;line-height:1.6;margin:0 0 16px;">
+              Recibimos tu consulta y en breve te vamos a responder.
+            </p>
+            <p style="color:#666;font-size:14px;line-height:1.6;margin:0 0 8px;"><strong>Tu mensaje:</strong></p>
+            <div style="background-color:#f8f9fa;border-left:4px solid #AA151B;padding:12px 16px;margin:0 0 24px;color:#333;font-size:14px;line-height:1.6;">
+              ${mensaje}
+            </div>
+            <p style="color:#666;font-size:14px;line-height:1.6;margin:0;">
+              Si querés agregar algo más, podés responder este correo.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="background-color:#1d1d1d;padding:20px 24px;">
+            <p style="color:#ffffff;font-size:13px;margin:0;">El Equipo de Club Deportivo Español</p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`;
+}
+
 export function parseRecipients(value: string | null): string[] {
   if (!value) {
     return [];

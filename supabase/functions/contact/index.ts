@@ -2,19 +2,29 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 import { buildCorsHeaders, getAllowedOrigins, resolveAllowedOrigin } from "../_shared/cors.ts";
 import {
+  buildConfirmationHtml,
+  buildConfirmationText,
   buildNotificationText,
   isJsonContentType,
   parseRecipients,
   validateContactPayload,
 } from "../_shared/contact.ts";
 
+interface EmailAttachment {
+  content: string;
+  filename: string;
+  content_id?: string;
+}
+
 interface SendEmailArgs {
   apiKey: string;
   from: string;
   to: string[];
-  replyTo: string;
+  replyTo?: string;
   subject: string;
   text: string;
+  html?: string;
+  attachments?: EmailAttachment[];
 }
 
 function jsonResponse(
@@ -41,11 +51,19 @@ async function sendResendEmail(args: SendEmailArgs): Promise<boolean> {
     body: JSON.stringify({
       from: args.from,
       to: args.to,
-      reply_to: [args.replyTo],
+      ...(args.replyTo ? { reply_to: args.replyTo } : {}),
       subject: args.subject,
       text: args.text,
+      ...(args.html ? { html: args.html } : {}),
+      ...(args.attachments && args.attachments.length > 0
+        ? { attachments: args.attachments }
+        : {}),
     }),
   });
+
+  if (!response.ok) {
+    console.error("Resend email failed", response.status, await response.text());
+  }
 
   return response.ok;
 }
@@ -111,7 +129,7 @@ Deno.serve(async (request) => {
   const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
   const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
   const resendApiKey = Deno.env.get("RESEND_API_KEY") ?? "";
-  const resendFromEmail = Deno.env.get("RESEND_FROM_EMAIL") ?? "contacto@cde.com.ar";
+  const resendFromEmail = Deno.env.get("RESEND_FROM_EMAIL") ?? "contacto@entrevistate.com";
   const notificationRecipients = parseRecipients(
     Deno.env.get("CONTACT_NOTIFICATION_TO"),
   );
@@ -201,7 +219,7 @@ Deno.serve(async (request) => {
     );
   }
 
-  if (!resendApiKey || notificationRecipients.length === 0) {
+  if (!resendApiKey) {
     return jsonResponse(
       {
         ok: true,
@@ -214,20 +232,40 @@ Deno.serve(async (request) => {
     );
   }
 
-  const emailSent = await sendResendEmail({
-    apiKey: resendApiKey,
-    from: resendFromEmail,
-    to: notificationRecipients,
-    replyTo: contact.email,
-    subject: `${emailSubjectPrefix} ${contact.nombre}`,
-    text: buildNotificationText(contact),
-  });
+  const [notificationSent, confirmationSent] = await Promise.all([
+    notificationRecipients.length > 0
+      ? sendResendEmail({
+        apiKey: resendApiKey,
+        from: resendFromEmail,
+        to: notificationRecipients,
+        replyTo: contact.email,
+        subject: `${emailSubjectPrefix} ${contact.nombre}`,
+        text: buildNotificationText(contact),
+      })
+      : Promise.resolve(false),
+    sendResendEmail({
+      apiKey: resendApiKey,
+      from: resendFromEmail,
+      to: [contact.email],
+      replyTo: notificationRecipients[0],
+      subject: "CONSULTA RECIBIDA",
+      text: buildConfirmationText(contact),
+      html: buildConfirmationHtml(contact),
+      attachments: [
+        {
+          content: CLUB_LOGO_BASE64,
+          filename: "escudo.png",
+          content_id: "club-logo",
+        },
+      ],
+    }),
+  ]);
 
-  if (!emailSent) {
+  if (!notificationSent || !confirmationSent) {
     return jsonResponse(
       {
         ok: true,
-        status: "stored_without_email",
+        status: "stored_with_partial_email",
         message:
           "Tu consulta fue registrada correctamente. No hace falta reenviarla.",
       },

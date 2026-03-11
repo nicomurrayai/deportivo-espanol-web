@@ -12,8 +12,8 @@
 
 1. Supabase CLI instalado y autenticado.
 2. Proyecto Supabase vinculado al proyecto `dguqkvbwbzqbicyeltjo`.
-3. Dominio `cde.com.ar` verificado en Resend.
-4. Una casilla emisora válida, por ejemplo `contacto@cde.com.ar`.
+3. Dominio `entrevistate.com` verificado en Resend.
+4. Una casilla emisora válida, por ejemplo `contacto@entrevistate.com`.
 
 ## Variables secretas de la función
 
@@ -28,7 +28,7 @@ Definir en Supabase:
 
 Valores sugeridos:
 
-- `RESEND_FROM_EMAIL=Contacto CDE <contacto@cde.com.ar>`
+- `RESEND_FROM_EMAIL=Contacto CDE <contacto@entrevistate.com>`
 - `CONTACT_NOTIFICATION_TO=info@cde.com.ar`
 - `CONTACT_EMAIL_SUBJECT_PREFIX=[Consulta Web CDE]`
 
@@ -47,7 +47,7 @@ supabase secrets set \
   SUPABASE_URL="https://dguqkvbwbzqbicyeltjo.supabase.co" \
   SUPABASE_SERVICE_ROLE_KEY="<service-role-key>" \
   RESEND_API_KEY="<resend-api-key>" \
-  RESEND_FROM_EMAIL="Contacto CDE <contacto@cde.com.ar>" \
+  RESEND_FROM_EMAIL="Contacto CDE <contacto@entrevistate.com>" \
   CONTACT_NOTIFICATION_TO="info@cde.com.ar" \
   CONTACT_EMAIL_SUBJECT_PREFIX="[Consulta Web CDE]"
 ```
@@ -72,23 +72,25 @@ Si cambia el proyecto de Supabase o se usa otro entorno, actualizar `data-contac
 2. El frontend valida formato básico y verifica en `localStorage` si ese navegador ya envió una consulta hoy.
 3. Si no hubo envío en el día, envía JSON al backend.
 4. La Edge Function valida nuevamente y guarda la consulta en Supabase.
-5. Se envía la notificación por Resend.
-6. Si la respuesta fue exitosa, el frontend guarda la fecha del envío en `localStorage`.
-7. El frontend muestra estado visual claro según el resultado.
+5. Se envía una notificación interna por Resend.
+6. Se envía un correo de confirmación al email cargado en el formulario con asunto fijo `CONSULTA RECIBIDA`.
+7. Si la respuesta fue exitosa, el frontend guarda la fecha del envío en `localStorage`.
+8. El frontend muestra estado visual claro según el resultado.
 
 ## Casos de respuesta
 
-- `200`: consulta guardada y correo enviado.
-- `202`: consulta guardada, pero el correo no se envió.
+- `200`: consulta guardada y ambos correos enviados.
+- `202`: consulta guardada, pero uno de los correos no se envió o falta configuración parcial.
 - `400`: datos inválidos.
 - `500`: error interno al guardar o procesar.
 
 ## Validación manual recomendada
 
 1. Enviar un formulario válido y confirmar fila creada en `contacto`.
-2. Verificar recepción del correo en el destino configurado.
-3. Intentar un segundo envío el mismo día desde el mismo navegador y confirmar que el frontend lo bloquea.
-4. Revisar el header de los posts en mobile y tablet.
+2. Verificar recepción del correo interno en el destino configurado.
+3. Verificar recepción del correo de confirmación en el email cargado en el formulario.
+4. Intentar un segundo envío el mismo día desde el mismo navegador y confirmar que el frontend lo bloquea.
+5. Revisar el header de los posts en mobile y tablet.
 
 ## Notas
 
