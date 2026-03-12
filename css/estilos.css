@@ -490,18 +490,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-club {
-    background-image: url('../img/el club/inauguracion estadio.jpg');
+    background-image: url('../img/el club/1958.jpg');
     background-position: center 40%;
 }
 
 .hero-futbol {
-    background-image: url('../img/futbol/primer-equipo.png');
+    background-image: url('../img/el club/1984.jpg');
     background-position: center 35%;
 }
 
 .hero-noticias {
-    background-image: url('../img/noticias/visita del embajador.jpg');
-    background-position: center 38%;
+    background-image: url('../img/noticias/legislatura.jpg');
+    background-position: center 50%;
 }
 
 .hero-contacto {
@@ -515,8 +515,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-sponsors {
-    background-image: url('../img/sponsors/embajada españa.jpg');
-    background-position: center 36%;
+    background-image: url('../img/noticias/visita del embajador.jpg');
+    background-position: center 46%;
 }
 
 .hero-seccion .contenedor {
