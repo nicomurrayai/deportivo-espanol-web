@@ -317,6 +317,10 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: none;
+    width: 100%;
+    padding: 0 24px;
+    gap: 24px;
 }
 
 .logo {
@@ -354,11 +358,15 @@ h1, h2, h3, h4, h5, h6 {
 .navegacion {
     display: flex;
     align-items: center;
+    flex: 1;
+    justify-content: flex-end;
+    min-width: 0;
 }
 
 .menu {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 }
 
 .menu li {
@@ -1103,7 +1111,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 769px) and (max-width: 1120px) {
     .cabecera .contenedor {
-        padding: 0 16px;
+        padding: 0 20px;
     }
 
     .menu li {
