@@ -469,6 +469,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 35vh;
     min-height: 180px;
     position: relative;
+    background-color: var(--color-negro);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -476,9 +477,47 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     text-align: center;
     padding-top: 100px;
+    overflow: hidden;
+    isolation: isolate;
 }
 
-.hero-seccion::before {\n    display: none;\n}
+.hero-seccion::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-club {
+    background-image: url('../img/el club/inauguracion estadio.jpg');
+    background-position: center 40%;
+}
+
+.hero-futbol {
+    background-image: url('../img/futbol/primer-equipo.png');
+    background-position: center 35%;
+}
+
+.hero-noticias {
+    background-image: url('../img/noticias/visita del embajador.jpg');
+    background-position: center 38%;
+}
+
+.hero-contacto {
+    background-image: url('../img/inicio/estadio españa.png');
+    background-position: center 52%;
+}
+
+.hero-socios {
+    background-image: url('../img/inicio/socios.jpg');
+    background-position: center 42%;
+}
+
+.hero-sponsors {
+    background-image: url('../img/sponsors/embajada españa argentina.jpg');
+    background-position: center 36%;
+}
 
 .hero-seccion .contenedor {
     position: relative;
