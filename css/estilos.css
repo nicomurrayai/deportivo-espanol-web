@@ -244,7 +244,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 3.5rem;
     margin-bottom: 20px;
     color: var(--color-blanco);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
     font-family: var(--fuente-principal);
     font-weight: 700;
 }
@@ -253,7 +253,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.5rem;
     margin-bottom: 30px;
     color: var(--color-blanco);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 0, 0, 0.4);
     font-family: var(--fuente-principal);
     font-weight: 300;
 }
@@ -326,6 +326,29 @@ h1, h2, h3, h4, h5, h6 {
 .logo img {
     height: 60px;
     width: auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-nombre {
+    font-family: var(--fuente-principal);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-negro);
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
 .navegacion {
@@ -419,19 +442,13 @@ h1, h2, h3, h4, h5, h6 {
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    padding-bottom: 120px;
     text-align: center;
 }
 
 .slide::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
-    z-index: 1;
+    display: none;
 }
 
 .slide .contenedor {
@@ -461,15 +478,7 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 100px;
 }
 
-.hero-seccion::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
-}
+.hero-seccion::before {\n    display: none;\n}
 
 .hero-seccion .contenedor {
     position: relative;
@@ -480,14 +489,14 @@ h1, h2, h3, h4, h5, h6 {
 .hero-seccion .titulo-principal {
     font-size: 3rem;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .hero-seccion .subtitulo {
     font-size: 1.3rem;
     max-width: 800px;
     margin: 0 auto;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
 .controles-slider {
@@ -958,6 +967,10 @@ h1, h2, h3, h4, h5, h6 {
     
     .boton-menu {
         display: block;
+    }
+
+    .logo-nombre {
+        display: none;
     }
 
     .cabecera .contenedor {
