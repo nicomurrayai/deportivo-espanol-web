@@ -25,6 +25,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-y: scroll;
 }
 
 body {
@@ -317,9 +318,10 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: none;
+    max-width: 1200px;
     width: 100%;
-    padding: 0 24px;
+    margin: 0 auto;
+    padding: 0 20px;
     gap: 24px;
 }
 
