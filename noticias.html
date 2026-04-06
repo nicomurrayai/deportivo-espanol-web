@@ -87,6 +87,21 @@
             background-color: var(--color-rojo);
             color: var(--color-blanco);
         }
+        .estado-noticias {
+            margin-top: 40px;
+            padding: 18px 24px;
+            border-radius: 16px;
+            background: rgba(170, 21, 27, 0.08);
+            color: var(--color-negro);
+            text-align: center;
+            font-weight: 500;
+        }
+        .estado-noticias.error {
+            background: rgba(170, 21, 27, 0.12);
+        }
+        .estado-noticias.vacio {
+            background: rgba(29, 29, 29, 0.06);
+        }
         @media (max-width: 768px) {
             .grilla-noticias {
                 grid-template-columns: 1fr;
@@ -318,7 +333,8 @@
     </section>
     <section class="seccion-noticias">
         <div class="contenedor">
-            <div class="grilla-noticias">
+            <div id="noticias-feedback" class="estado-noticias">Cargando noticias...</div>
+            <div class="grilla-noticias" id="noticias-grid" hidden>
          
                 <article class="noticia">
                     <img src="img/noticias/legislatura.jpg" alt="Noticia 1" class="imagen-noticia">
@@ -411,5 +427,8 @@
         </div>
     </footer>
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="js/noticias-api.js"></script>
+    <script src="js/noticias-listado.js"></script>
 </body>
 </html>

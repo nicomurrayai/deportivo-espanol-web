@@ -96,6 +96,21 @@
             background-color: var(--color-rojo);
             color: var(--color-blanco);
         }
+        .estado-noticias {
+            width: 100%;
+            padding: 18px 24px;
+            border-radius: 16px;
+            background: rgba(170, 21, 27, 0.08);
+            color: var(--color-negro);
+            text-align: center;
+            font-weight: 500;
+        }
+        .estado-noticias.error {
+            background: rgba(170, 21, 27, 0.12);
+        }
+        .estado-noticias.vacio {
+            background: rgba(29, 29, 29, 0.06);
+        }
         @media (max-width: 800px) {
             .tarjetas-grid {
                 flex-direction: column;
@@ -351,7 +366,8 @@
             <h2 class="titulo-seccion">Destacados</h2>
             <p class="descripcion-seccion">Conocé las últimas novedades de nuestro club</p>
             
-            <div class="tarjetas-grid">
+            <div id="home-news-feedback" class="estado-noticias">Cargando noticias...</div>
+            <div class="tarjetas-grid" id="home-news-grid" hidden>
                 <div class="tarjeta">
                     <div class="tarjeta-imagen">
                         <img src="img/noticias/SUM.jpg" alt="Noticia 1">
@@ -615,5 +631,8 @@
         iniciarAutoSlide();
     });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="js/noticias-api.js"></script>
+    <script src="js/index-noticias.js"></script>
 </body>
 </html>
