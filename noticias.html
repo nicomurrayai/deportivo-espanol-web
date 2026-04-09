@@ -89,18 +89,9 @@
         }
         .estado-noticias {
             margin-top: 40px;
-            padding: 18px 24px;
-            border-radius: 16px;
-            background: rgba(170, 21, 27, 0.08);
-            color: var(--color-negro);
+            color: var(--color-gris-oscuro);
             text-align: center;
             font-weight: 500;
-        }
-        .estado-noticias.error {
-            background: rgba(170, 21, 27, 0.12);
-        }
-        .estado-noticias.vacio {
-            background: rgba(29, 29, 29, 0.06);
         }
         @media (max-width: 768px) {
             .grilla-noticias {
@@ -333,7 +324,7 @@
     </section>
     <section class="seccion-noticias">
         <div class="contenedor">
-            <div id="noticias-feedback" class="estado-noticias">Cargando noticias...</div>
+            <div id="noticias-feedback" class="estado-noticias" hidden></div>
             <div class="grilla-noticias" id="noticias-grid" hidden>
          
                 <article class="noticia">

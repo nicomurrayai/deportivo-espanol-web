@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                         <span class="tarjeta-categoria">${api.escapeHtml(api.formatFecha(noticia.fecha))}</span>
                         <h3 class="tarjeta-titulo">${api.escapeHtml(noticia.titulo)}</h3>
                         <p class="tarjeta-texto">${api.escapeHtml(excerpt)}</p>
-                        <a href="${api.escapeHtml(noticiaUrl)}" class="tarjeta-enlace">Leer mas <i class="fas fa-arrow-right"></i></a>
+                        <a href="${api.escapeHtml(noticiaUrl)}" class="tarjeta-enlace">Ver noticia <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
             `;

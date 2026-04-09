@@ -82,15 +82,9 @@
             color: var(--color-blanco);
         }
         .estado-noticia {
-            padding: 18px 24px;
-            border-radius: 16px;
-            background: rgba(170, 21, 27, 0.08);
-            color: var(--color-negro);
+            color: var(--color-gris-oscuro);
             text-align: center;
             font-weight: 500;
-        }
-        .estado-noticia.error {
-            background: rgba(170, 21, 27, 0.12);
         }
         @media (max-width: 768px) {
             .imagen-principal {
@@ -214,7 +208,7 @@
 
     <section class="seccion-noticia">
         <div class="contenedor">
-            <div id="noticia-estado" class="estado-noticia">Cargando noticia...</div>
+            <div id="noticia-estado" class="estado-noticia" hidden></div>
             <article class="noticia-completa" id="noticia-detalle" hidden>
                 <img src="" alt="" class="imagen-principal" id="noticia-imagen">
                 <div class="contenido-noticia">

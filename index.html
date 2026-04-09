@@ -37,7 +37,7 @@
         }
         .tarjeta {
             width: 400px;
-            height: 320px;
+            min-height: 360px;
             background: #fff;
             border-radius: 20px;
             box-shadow: var(--sombra);
@@ -68,16 +68,20 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            gap: 8px;
         }
         .tarjeta-titulo {
             font-size: 1.1rem;
-            margin-bottom: 6px;
+            margin-bottom: 0;
         }
         .tarjeta-texto {
             font-size: 0.95rem;
-            margin-bottom: 8px;
             flex: 1;
+            margin-bottom: 0;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
         }
         .tarjeta-enlace {
             display: inline-block;
@@ -87,9 +91,10 @@
             border-radius: 8px;
             font-weight: 600;
             text-decoration: none;
-            margin-top: 10px;
+            margin-top: auto;
             transition: var(--transicion);
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            align-self: flex-start;
         }
         
         .tarjeta-enlace:hover {
@@ -376,7 +381,7 @@
                         <span class="tarjeta-categoria">Socios</span>
                         <h3 class="tarjeta-titulo">Nuevo SUM</h3>
                         <p class="tarjeta-texto">La peña 30 de Junio inauguró el nuevo SUM debajo de la platea visitante</p>
-                        <a href="noticias/nuevo-SUM.html" class="tarjeta-enlace">Leer más <i class="fas fa-arrow-right"></i></a>
+                        <a href="noticias/nuevo-SUM.html" class="tarjeta-enlace">Ver noticia <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 
@@ -388,7 +393,7 @@
                         <span class="tarjeta-categoria">Institucional</span>
                         <h3 class="tarjeta-titulo">Proyecto de restitución histórica</h3>
                         <p class="tarjeta-texto">Se presentó un proyecto de ley para cuidar lo más preciado: nuestro predio</p>
-                        <a href="noticias/restitucion-historica.html" class="tarjeta-enlace">Leer más <i class="fas fa-arrow-right"></i></a>
+                        <a href="noticias/restitucion-historica.html" class="tarjeta-enlace">Ver noticia <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 
@@ -400,7 +405,7 @@
                         <span class="tarjeta-categoria">Institucional</span>
                         <h3 class="tarjeta-titulo">Nuevo sponsor se suma al club</h3>
                         <p class="tarjeta-texto">El Club Deportivo Español anuncia la incorporación de un nuevo sponsor principal.</p>
-                        <a href="noticias/nuevo-sponsor.html" class="tarjeta-enlace">Leer más <i class="fas fa-arrow-right"></i></a>
+                        <a href="noticias/nuevo-sponsor.html" class="tarjeta-enlace">Ver noticia <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
