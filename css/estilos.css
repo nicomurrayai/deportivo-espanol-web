@@ -369,10 +369,12 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    gap: 24px;
+    flex-wrap: nowrap;
 }
 
 .menu li {
-    margin-left: 30px;
+    margin-left: 0;
 }
 
 .menu a {
@@ -1036,6 +1038,8 @@ h1, h2, h3, h4, h5, h6 {
         background-color: var(--color-blanco);
         flex-direction: column;
         align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0;
         padding: 100px 30px 30px;
         transition: var(--transicion);
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
@@ -1114,14 +1118,28 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 769px) and (max-width: 1120px) {
     .cabecera .contenedor {
         padding: 0 20px;
+        gap: 16px;
     }
 
-    .menu li {
-        margin-left: 18px;
+    .logo-nombre {
+        font-size: 1rem;
+    }
+
+    .menu {
+        gap: 12px;
     }
 
     .menu a {
-        font-size: 0.95rem;
+        font-size: 0.88rem;
+    }
+
+    .menu .boton,
+    .menu .boton-rojo,
+    .menu .boton-celeste,
+    .menu .boton-negro,
+    .menu .boton-blanco {
+        padding: 10px 14px;
+        font-size: 0.85rem;
     }
 }
 

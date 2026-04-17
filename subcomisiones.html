@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Subcomisiones 2026 del Club Deportivo Espa&ntilde;ol. &Aacute;reas de trabajo, integrantes y correos de contacto institucionales.">
+    <meta name="keywords" content="subcomisiones, club deportivo, areas institucionales, contactos, comision directiva">
+    <title>Subcomisiones 2026 - Club Deportivo Espa&ntilde;ol</title>
+    <link rel="icon" href="img/escudo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        :root {
+            --color-rojo: #AA151B;
+            --color-blanco: #ffffff;
+            --color-negro: #1d1d1d;
+            --color-gris-claro: #f8f9fa;
+            --color-gris: #e9ecef;
+            --color-gris-oscuro: #6c757d;
+            --color-amarillo: #fbff00;
+            --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transicion: all 0.3s ease;
+            --borde-radio: 8px;
+            --fuente-principal: 'Poppins', sans-serif;
+        }
+
+        .intro-subcomisiones {
+            background: linear-gradient(135deg, rgba(170, 21, 27, 0.08), rgba(255, 255, 255, 0.98));
+            border: 1px solid rgba(170, 21, 27, 0.12);
+            border-radius: 18px;
+            padding: 28px 32px;
+            margin: 0 auto 40px;
+            max-width: 980px;
+            box-shadow: var(--sombra);
+        }
+
+        .intro-subcomisiones p {
+            margin-bottom: 12px;
+            color: var(--color-negro);
+        }
+
+        .intro-subcomisiones p:last-child {
+            margin-bottom: 0;
+        }
+
+        .subcomisiones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .subcomision-card {
+            position: relative;
+            background-color: var(--color-blanco);
+            border-radius: 18px;
+            box-shadow: var(--sombra);
+            overflow: hidden;
+            border: 1px solid rgba(170, 21, 27, 0.08);
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .subcomision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-rojo), #d4545a);
+        }
+
+        .subcomision-card.aparece {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .subcomision-card.aparece:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+        }
+
+        .subcomision-contenido {
+            padding: 28px 24px 24px;
+        }
+
+        .subcomision-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        .subcomision-indice {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--color-rojo);
+            letter-spacing: 0.08em;
+        }
+
+        .subcomision-etiqueta {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--color-gris-oscuro);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .subcomision-card h3 {
+            font-size: 1.35rem;
+            line-height: 1.25;
+            margin-bottom: 20px;
+            color: var(--color-negro);
+        }
+
+        .subcomision-bloque + .subcomision-bloque {
+            margin-top: 18px;
+        }
+
+        .subcomision-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--color-rojo);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .subcomision-label i {
+            font-size: 0.95rem;
+        }
+
+        .subcomision-personas {
+            margin: 0;
+            color: var(--color-negro);
+            line-height: 1.7;
+            word-break: break-word;
+        }
+
+        .subcomision-correos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .subcomision-correo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background-color: rgba(170, 21, 27, 0.08);
+            color: var(--color-rojo);
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        .subcomision-correo:hover {
+            background-color: var(--color-rojo);
+            color: var(--color-blanco);
+        }
+
+        .subcomision-secundaria {
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(29, 29, 29, 0.08);
+        }
+
+        .nota-subcomisiones {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 18px;
+            color: var(--color-gris-oscuro);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .intro-subcomisiones {
+                padding: 22px 18px;
+                margin-bottom: 28px;
+            }
+
+            .subcomisiones-grid {
+                gap: 18px;
+            }
+
+            .subcomision-contenido {
+                padding: 24px 18px 20px;
+            }
+
+            .subcomision-card h3 {
+                font-size: 1.18rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="cabecera">
+        <div class="contenedor">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/escudo.png" alt="Logo Club Deportivo Espa&ntilde;ol">
+                    <span class="logo-nombre">Club Deportivo<br>Espa&ntilde;ol</span>
+                </a>
+            </div>
+            <nav class="navegacion">
+                <button class="boton-menu" aria-label="Abrir men&uacute;">
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                </button>
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="club.html">El Club</a></li>
+                    <li><a href="subcomisiones.html">Subcomisiones</a></li>
+                    <li><a href="futbol.html">F&uacute;tbol Profesional</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <!-- <li><a href="sponsors.html">Sponsors</a></li> -->
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="socios.html" class="boton boton-rojo" style="background-color: var(--color-rojo); color: var(--color-amarillo); border: 2px solid var(--color-rojo);">Hacete Socio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-seccion hero-club">
+        <div class="contenedor">
+            <h1 class="titulo-principal">Subcomisiones 2026</h1>
+            <p class="subtitulo">&Aacute;reas de trabajo, referentes y contactos institucionales para acompa&ntilde;ar el d&iacute;a a d&iacute;a del club.</p>
+        </div>
+    </section>
+
+    <section class="seccion fondo-gris">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">Organizaci&oacute;n Institucional</h2>
+            <p class="descripcion-seccion">Esta p&aacute;gina re&uacute;ne las subcomisiones 2026 del Club Deportivo Espa&ntilde;ol con sus integrantes y los correos disponibles para cada &aacute;rea.</p>
+
+            <div class="intro-subcomisiones">
+                <p>Las subcomisiones acompa&ntilde;an la gesti&oacute;n cotidiana del club en lo deportivo, administrativo, social y cultural. Ac&aacute; pod&eacute;s consultar qu&eacute; &aacute;reas est&aacute;n activas y cu&aacute;les son sus canales de contacto institucionales.</p>
+                <p class="nota-subcomisiones"><i class="fas fa-circle-info"></i><span>Se muestran &uacute;nicamente los correos y nombres informados para la organizaci&oacute;n 2026.</span></p>
+            </div>
+
+            <div class="subcomisiones-grid">
+                <article class="subcomision-card">
+                    <div class="subcomision-contenido">
+                        <div class="subcomision-meta">
+                            <span class="subcomision-indice">01</span>
+                            <span class="subcomision-etiqueta">Subcomisi&oacute;n 2026</span>
+                        </div>
+                        <h3>Presidencia y administraci&oacute;n general</h3>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-envelope"></i>Correos de contacto</p>
+                            <div class="subcomision-correos">
+                                <a class="subcomision-correo" href="mailto:presidencia@cde.com.ar"><i class="fas fa-paper-plane"></i><span>presidencia@cde.com.ar</span></a>
+                                <a class="subcomision-correo" href="mailto:administracion@cde.com.ar"><i class="fas fa-paper-plane"></i><span>administracion@cde.com.ar</span></a>
+                                <a class="subcomision-correo" href="mailto:tesoreria@cde.com.ar"><i class="fas fa-paper-plane"></i><span>tesoreria@cde.com.ar</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="subcomision-card">
+                    <div class="subcomision-contenido">
+                        <div class="subcomision-meta">
+                            <span class="subcomision-indice">02</span>
+                            <span class="subcomision-etiqueta">Subcomisi&oacute;n 2026</span>
+                        </div>
+                        <h3>F&uacute;tbol Profesional</h3>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-users"></i>Integrantes</p>
+                            <p class="subcomision-personas">Daniel Prieto, Sebasti&aacute;n R&iacute;os, Emilio Leurini, Juan Carlos Fern&aacute;ndez, Mario Rodr&iacute;guez San Mart&iacute;n</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="subcomision-card">
+                    <div class="subcomision-contenido">
+                        <div class="subcomision-meta">
+                            <span class="subcomision-indice">03</span>
+                            <span class="subcomision-etiqueta">Subcomisi&oacute;n 2026</span>
+                        </div>
+                        <h3>F&uacute;tbol Amateur</h3>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-envelope"></i>Correo general</p>
+                            <div class="subcomision-correos">
+                                <a class="subcomision-correo" href="mailto:futbolamateur@cde.com.ar"><i class="fas fa-paper-plane"></i><span>futbolamateur@cde.com.ar</span></a>
+                            </div>
+                        </div>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-users"></i>Integrantes</p>
+                            <p class="subcomision-personas">Federico Escribal, Omar Gonz&aacute;lez, Danilo Maciel</p>
+                        </div>
+                        <div class="subcomision-bloque subcomision-secundaria">
+                            <p class="subcomision-label"><i class="fas fa-list-check"></i>Coordinaci&oacute;n</p>
+                            <p class="subcomision-personas">Pedro Catalano y Javier Galeano</p>
+                            <div class="subcomision-correos" style="margin-top: 12px;">
+                                <a class="subcomision-correo" href="mailto:coordinacionfutbolamateur@cde.com.ar"><i class="fas fa-paper-plane"></i><span>coordinacionfutbolamateur@cde.com.ar</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="subcomision-card">
+                    <div class="subcomision-contenido">
+                        <div class="subcomision-meta">
+                            <span class="subcomision-indice">04</span>
+                            <span class="subcomision-etiqueta">Subcomisi&oacute;n 2026</span>
+                        </div>
+                        <h3>Obras, infraestructura y mantenimiento</h3>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-users"></i>Integrantes</p>
+                            <p class="subcomision-personas">Antonio Vidal Cerreda, Diego Carril, toda la Pe&ntilde;a &quot;30 de junio&quot;</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="subcomision-card">
+                    <div class="subcomision-contenido">
+                        <div class="subcomision-meta">
+                            <span class="subcomision-indice">05</span>
+                            <span class="subcomision-etiqueta">Subcomisi&oacute;n 2026</span>
+                        </div>
+                        <h3>Prensa</h3>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-envelope"></i>Correo de contacto</p>
+                            <div class="subcomision-correos">
+                                <a class="subcomision-correo" href="mailto:prensa@cde.com.ar"><i class="fas fa-paper-plane"></i><span>prensa@cde.com.ar</span></a>
+                            </div>
+                        </div>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-users"></i>Integrantes</p>
+                            <p class="subcomision-personas">Oscar Fern&aacute;ndez, Rodrigo &Aacute;lvarez, Gustavo P&eacute;rez Ulloa</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="subcomision-card">
+                    <div class="subcomision-contenido">
+                        <div class="subcomision-meta">
+                            <span class="subcomision-indice">06</span>
+                            <span class="subcomision-etiqueta">Subcomisi&oacute;n 2026</span>
+                        </div>
+                        <h3>Marketing</h3>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-envelope"></i>Correo de contacto</p>
+                            <div class="subcomision-correos">
+                                <a class="subcomision-correo" href="mailto:marketing@cde.com.ar"><i class="fas fa-paper-plane"></i><span>marketing@cde.com.ar</span></a>
+                            </div>
+                        </div>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-users"></i>Integrantes</p>
+                            <p class="subcomision-personas">Sebasti&aacute;n de Alba, Enrique Marcos, Omar Gonz&aacute;lez, Braian Nardelli, Javier Gonz&aacute;lez, Joaqu&iacute;n de Alba Ib&aacute;&ntilde;ez, Esteban Petitto &Aacute;lvarez</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="subcomision-card">
+                    <div class="subcomision-contenido">
+                        <div class="subcomision-meta">
+                            <span class="subcomision-indice">07</span>
+                            <span class="subcomision-etiqueta">Subcomisi&oacute;n 2026</span>
+                        </div>
+                        <h3>Legales</h3>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-envelope"></i>Correo de contacto</p>
+                            <div class="subcomision-correos">
+                                <a class="subcomision-correo" href="mailto:legales@cde.com.ar"><i class="fas fa-paper-plane"></i><span>legales@cde.com.ar</span></a>
+                            </div>
+                        </div>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-users"></i>Integrantes</p>
+                            <p class="subcomision-personas">Xo&aacute;n Manuel Negreira Barreto, Carlos Villares, Leandro Massera, Paloma P&eacute;rez</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="subcomision-card">
+                    <div class="subcomision-contenido">
+                        <div class="subcomision-meta">
+                            <span class="subcomision-indice">08</span>
+                            <span class="subcomision-etiqueta">Subcomisi&oacute;n 2026</span>
+                        </div>
+                        <h3>Comunicaci&oacute;n y redes</h3>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-users"></i>Integrantes</p>
+                            <p class="subcomision-personas">I&ntilde;aqui P&eacute;rez, Joaqu&iacute;n de Alba Ib&aacute;&ntilde;ez, Luna P&eacute;rez, Santiago Mim&eacute;ndez</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="subcomision-card">
+                    <div class="subcomision-contenido">
+                        <div class="subcomision-meta">
+                            <span class="subcomision-indice">09</span>
+                            <span class="subcomision-etiqueta">Subcomisi&oacute;n 2026</span>
+                        </div>
+                        <h3>Relaciones institucionales</h3>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-users"></i>Integrantes</p>
+                            <p class="subcomision-personas">Daniel Castro V&aacute;zquez, Miguel Angel Negreira, Ernesto Ord&oacute;&ntilde;ez, Manuel Tom&eacute; Pe&oacute;n, Gustavo P&eacute;rez Ulloa</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="subcomision-card">
+                    <div class="subcomision-contenido">
+                        <div class="subcomision-meta">
+                            <span class="subcomision-indice">10</span>
+                            <span class="subcomision-etiqueta">Subcomisi&oacute;n 2026</span>
+                        </div>
+                        <h3>Socios/as</h3>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-envelope"></i>Correo de contacto</p>
+                            <div class="subcomision-correos">
+                                <a class="subcomision-correo" href="mailto:socios@cde.com.ar"><i class="fas fa-paper-plane"></i><span>socios@cde.com.ar</span></a>
+                            </div>
+                        </div>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-users"></i>Integrantes</p>
+                            <p class="subcomision-personas">Pablo Nores Castro, Esteban Petitto &Aacute;lvarez, Gustavo P&eacute;rez Ulloa, Jos&eacute; Luis Pose Riveiro, Juan Jos&eacute; Rodr&iacute;guez</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="subcomision-card">
+                    <div class="subcomision-contenido">
+                        <div class="subcomision-meta">
+                            <span class="subcomision-indice">11</span>
+                            <span class="subcomision-etiqueta">Subcomisi&oacute;n 2026</span>
+                        </div>
+                        <h3>Eventos</h3>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-users"></i>Integrantes</p>
+                            <p class="subcomision-personas">Mario Rodr&iacute;guez San Mart&iacute;n, Juan Jos&eacute; Rodr&iacute;guez, Pablo Nores Castro, Miguel Angel Negreira, H&eacute;ctor Negreira, Leandro V&aacute;zquez</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="subcomision-card">
+                    <div class="subcomision-contenido">
+                        <div class="subcomision-meta">
+                            <span class="subcomision-indice">12</span>
+                            <span class="subcomision-etiqueta">Subcomisi&oacute;n 2026</span>
+                        </div>
+                        <h3>Deportes y disciplinas</h3>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-users"></i>Integrantes</p>
+                            <p class="subcomision-personas">Danilo Maciel, Agust&iacute;n Vitale, Pablo Nores Castro, Esteban Petitto &Aacute;lvarez</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="subcomision-card">
+                    <div class="subcomision-contenido">
+                        <div class="subcomision-meta">
+                            <span class="subcomision-indice">13</span>
+                            <span class="subcomision-etiqueta">Subcomisi&oacute;n 2026</span>
+                        </div>
+                        <h3>Cultura</h3>
+                        <div class="subcomision-bloque">
+                            <p class="subcomision-label"><i class="fas fa-users"></i>Integrantes</p>
+                            <p class="subcomision-personas">Federico Escribal, Gonzalo Beladrich</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer class="pie">
+        <div class="contenedor">
+            <div class="columnas-footer">
+                <div class="columna-footer">
+                    <div class="logo-footer">
+                        <img src="img/escudo.png" alt="Logo Club Deportivo Espa&ntilde;ol">
+                    </div>
+                    <p>M&aacute;s de 65 a&ntilde;os fomentando el deporte y los valores que lo acompa&ntilde;an en nuestra comunidad.</p>
+                    <div class="redes-sociales-footer">
+                        <a href="https://www.facebook.com/CDEspanol1956/?locale=es_LA" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/clubdeportivoespanol/?hl=es" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/c/FuriaEspa%C3%B1olaTV" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="columna-footer">
+                    <h3>Enlaces r&aacute;pidos</h3>
+                    <ul class="enlaces-footer">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="club.html">El Club</a></li>
+                        <li><a href="subcomisiones.html">Subcomisiones</a></li>
+                        <li><a href="futbol.html">F&uacute;tbol Profesional</a></li>
+                        <li><a href="noticias.html">Noticias</a></li>
+                        <li><a href="socios.html">Socios</a></li>
+                        <!-- <li><a href="sponsors.html">Sponsors</a></li> -->
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="columna-footer">
+                    <h3>Contacto</h3>
+                    <ul class="info-contacto">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Santiago de Compostela 3801, CABA</li>
+                        <li><i class="fas fa-phone"></i> (011) 4567-8900</li>
+                        <li><i class="fas fa-envelope"></i> info@clubdeportivo.com</li>
+                        <li><i class="fas fa-clock"></i> Lun-Vie: 8:00 - 22:00, S&aacute;b-Dom: 9:00 - 20:00</li>
+                    </ul>
+                </div>
+
+                <div class="columna-footer">
+                    <h3>Ubicaci&oacute;n</h3>
+                    <div style="border-radius: var(--borde-radio); overflow: hidden; height: 200px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.237381788609!2d-58.44916668499998!3d-34.593453980458675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc3e56f2fd6b1%3A0xe8b3e6ded19f5!2sAv.%20Santiago%20de%20Compostela%203801%2C%20CABA!5e0!3m2!1ses!2sar!4v1660000000000!5m2!1ses!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Club Deportivo Espa&ntilde;ol. Todos los derechos reservados.</p>
+                <ul class="enlaces-legales">
+                    <li><a href="terminos-y-condiciones.html">T&eacute;rminos y condiciones</a></li>
+                    <li><a href="privacidad.html">Pol&iacute;tica de privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function animarAparicion(selector) {
+            const elementos = document.querySelectorAll(selector);
+            const observer = new window.IntersectionObserver((entradas) => {
+                entradas.forEach((entrada) => {
+                    if (entrada.isIntersecting) {
+                        entrada.target.classList.add('aparece');
+                        observer.unobserve(entrada.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            elementos.forEach((el) => observer.observe(el));
+        }
+
+        animarAparicion('.subcomision-card');
+    });
+    </script>
+</body>
+</html>
