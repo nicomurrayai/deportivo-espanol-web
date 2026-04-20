@@ -405,22 +405,32 @@
                 </a>
             </div>
             <nav class="navegacion">
-                <button class="boton-menu" aria-label="Abrir menú">
-                    <span class="barra"></span>
-                    <span class="barra"></span>
-                    <span class="barra"></span>
-                </button>
-                <ul class="menu">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="club.html">El Club</a></li>
-                    <li><a href="subcomisiones.html">Subcomisiones</a></li>
-                    <li><a href="futbol.html">Fútbol Profesional</a></li>
-                    <li><a href="noticias.html">Noticias</a></li>
-                    <!-- <li><a href="sponsors.html">Sponsors</a></li> -->
-                    <li><a href="contacto.html">Contacto</a></li>
-                    <li><a href="socios.html" class="boton boton-rojo" style="background-color: var(--color-rojo); color: var(--color-amarillo); border: 2px solid var(--color-rojo);">Hacete Socio</a></li>
-                </ul>
-            </nav>
+    <button class="boton-menu" aria-label="Abrir menú">
+        <span class="barra"></span>
+        <span class="barra"></span>
+        <span class="barra"></span>
+    </button>
+    <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li class="menu-dropdown">
+            <button class="menu-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <span>Institucional</span>
+                <i class="fas fa-chevron-down menu-dropdown-icono" aria-hidden="true"></i>
+            </button>
+            <ul class="submenu" aria-label="Subsecciones institucionales">
+                <li><a href="historia/index.html">Historia</a></li>
+                <li><a href="valores/index.html">Valores</a></li>
+                <li><a href="comision-directiva/index.html">Comisión Directiva</a></li>
+                <li><a href="subcomisiones/index.html">Subcomisiones</a></li>
+                <li><a href="instalaciones/index.html">Instalaciones</a></li>
+            </ul>
+        </li>
+        <li><a href="futbol.html" class="activo">Fútbol Profesional</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="socios.html" class="boton boton-rojo" style="background-color: var(--color-rojo); color: var(--color-amarillo); border: 2px solid var(--color-rojo);">Hacete Socio</a></li>
+    </ul>
+</nav>
         </div>
     </header>
     <section class="hero-seccion hero-futbol">
@@ -622,67 +632,60 @@
         </div>
     </section>
     <footer class="pie">
-        <div class="contenedor">
-            <div class="columnas-footer">
-                <div class="columna-footer">
-                    <div class="logo-footer">
-                        <img src="img/escudo.png" alt="Logo Club Deportivo Español">
-                    </div>
-                    <p>Más de 65 años fomentando el deporte y los valores que lo acompañan en nuestra comunidad.</p>
-                    <div class="redes-sociales-footer">
-                        <a href="https://www.facebook.com/CDEspanol1956/?locale=es_LA" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.instagram.com/clubdeportivoespanol/?hl=es" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.youtube.com/c/FuriaEspa%C3%B1olaTV" aria-label="YouTube">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
+    <div class="contenedor">
+        <div class="columnas-footer">
+            <div class="columna-footer">
+                <div class="logo-footer">
+                    <img src="img/escudo.png" alt="Logo Club Deportivo Español">
                 </div>
-                
-                <div class="columna-footer">
-                    <h3>Enlaces rápidos</h3>
-                    <ul class="enlaces-footer">
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="club.html">El Club</a></li>
-                        <li><a href="subcomisiones.html">Subcomisiones</a></li>
-                        <li><a href="futbol.html">Fútbol Profesional</a></li>
-                        <li><a href="noticias.html">Noticias</a></li>
-                        <li><a href="socios.html">Socios</a></li>
-                        <!-- <li><a href="sponsors.html">Sponsors</a></li> -->
-                        <li><a href="contacto.html">Contacto</a></li>
-                    </ul>
+                <p>Más de 65 años fomentando el deporte y los valores que lo acompañan en nuestra comunidad.</p>
+                <div class="redes-sociales-footer">
+                    <a href="https://www.facebook.com/CDEspanol1956/?locale=es_LA" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/clubdeportivoespanol/?hl=es" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/c/FuriaEspañolaTV" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
-                
-                <div class="columna-footer">
-                    <h3>Contacto</h3>
-                    <ul class="info-contacto">
-                        <li><i class="fas fa-map-marker-alt"></i> Av. Santiago de Compostela 3801, CABA</li>
-                        <li><i class="fas fa-phone"></i> (011) 4567-8900</li>
-                        <li><i class="fas fa-envelope"></i> info@clubdeportivo.com</li>
-                        <li><i class="fas fa-clock"></i> Lun-Vie: 8:00 - 22:00, Sáb-Dom: 9:00 - 20:00</li>
-                    </ul>
-                </div>
-                
-        <div class="columna-footer">
-            <h3>Ubicación</h3>
-            <div style="border-radius: var(--borde-radio); overflow: hidden; height: 200px;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.237381788609!2d-58.44916668499998!3d-34.593453980458675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc3e56f2fd6b1%3A0xe8b3e6ded19f5!2sAv.%20Santiago%20de%20Compostela%203801%2C%20CABA!5e0!3m2!1ses!2sar!4v1660000000000!5m2!1ses!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-        </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2025 Club Deportivo Español. Todos los derechos reservados.</p>
-                <ul class="enlaces-legales">
-                    <li><a href="terminos-y-condiciones.html">Términos y condiciones</a></li>
-                    <li><a href="privacidad.html">Política de privacidad</a></li>
+            <div class="columna-footer">
+                <h3>Enlaces rápidos</h3>
+                <ul class="enlaces-footer">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="futbol.html">Fútbol Profesional</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="socios.html">Socios</a></li>
+                    <li class="titulo-enlaces-footer">Institucional</li>
+                    <li><a href="historia/index.html">Historia</a></li>
+                    <li><a href="valores/index.html">Valores</a></li>
+                    <li><a href="comision-directiva/index.html">Comisión Directiva</a></li>
+                    <li><a href="subcomisiones/index.html">Subcomisiones</a></li>
+                    <li><a href="instalaciones/index.html">Instalaciones</a></li>
                 </ul>
             </div>
+            <div class="columna-footer">
+                <h3>Contacto</h3>
+                <ul class="info-contacto">
+                    <li><i class="fas fa-map-marker-alt"></i> Av. Santiago de Compostela 3801, CABA</li>
+                    <li><i class="fas fa-phone"></i> (011) 4567-8900</li>
+                    <li><i class="fas fa-envelope"></i> info@clubdeportivo.com</li>
+                    <li><i class="fas fa-clock"></i> Lun-Vie: 8:00 - 22:00, Sáb-Dom: 9:00 - 20:00</li>
+                </ul>
+            </div>
+            <div class="columna-footer">
+                <h3>Ubicación</h3>
+                <div style="border-radius: var(--borde-radio); overflow: hidden; height: 200px;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.237381788609!2d-58.44916668499998!3d-34.593453980458675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc3e56f2fd6b1%3A0xe8b3e6ded19f5!2sAv.%20Santiago%20de%20Compostela%203801%2C%20CABA!5e0!3m2!1ses!2sar!4v1660000000000!5m2!1ses!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
         </div>
-    </footer>
+        <div class="copyright">
+            <p>&copy; 2025 Club Deportivo Español. Todos los derechos reservados.</p>
+            <ul class="enlaces-legales">
+                <li><a href="terminos-y-condiciones.html">Términos y condiciones</a></li>
+                <li><a href="privacidad.html">Política de privacidad</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
     <script src="js/script.js"></script>
     <script>
   

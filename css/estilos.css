@@ -375,6 +375,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .menu li {
     margin-left: 0;
+    position: relative;
 }
 
 .menu a {
@@ -382,6 +383,28 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
     position: relative;
     font-family: var(--fuente-principal);
+}
+
+.menu button {
+    color: var(--color-negro);
+    font: inherit;
+    font-weight: 500;
+    font-family: var(--fuente-principal);
+}
+
+.menu-dropdown {
+    position: relative;
+}
+
+.menu-dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
 }
 
 .menu .boton,
@@ -403,12 +426,93 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transicion);
 }
 
+.menu-dropdown-toggle::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-rojo);
+    transition: var(--transicion);
+}
+
 .menu a:hover::after {
     width: 100%;
 }
 
 .menu a.activo::after {
     width: 100%;
+}
+
+.menu-dropdown:hover .menu-dropdown-toggle::after,
+.menu-dropdown:focus-within .menu-dropdown-toggle::after,
+.menu-dropdown-toggle.activo::after,
+.menu-dropdown-toggle[aria-expanded="true"]::after {
+    width: 100%;
+}
+
+.menu-dropdown-toggle.activo {
+    color: var(--color-rojo);
+}
+
+.menu-dropdown-icono {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.menu-dropdown:hover .menu-dropdown-icono,
+.menu-dropdown:focus-within .menu-dropdown-icono,
+.menu-dropdown-toggle[aria-expanded="true"] .menu-dropdown-icono {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    position: absolute;
+    top: calc(100% + 18px);
+    left: 0;
+    min-width: 240px;
+    margin: 0;
+    padding: 14px 0;
+    list-style: none;
+    background: var(--color-blanco);
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(170, 21, 27, 0.08);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    z-index: 1000;
+}
+
+.menu-dropdown:hover .submenu,
+.menu-dropdown:focus-within .submenu,
+.menu-dropdown.abierto .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.submenu li {
+    width: 100%;
+}
+
+.submenu a {
+    display: block;
+    padding: 10px 18px;
+    white-space: nowrap;
+    font-size: 0.98rem;
+}
+
+.submenu a::after {
+    display: none;
+}
+
+.submenu a:hover,
+.submenu a.activo {
+    color: var(--color-rojo);
+    background: rgba(170, 21, 27, 0.06);
 }
 
 .boton-menu {
@@ -684,6 +788,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .enlaces-footer li {
     margin-bottom: 12px;
+}
+
+.enlaces-footer .titulo-enlaces-footer {
+    margin-top: 18px;
+    margin-bottom: 10px;
+    color: var(--color-blanco);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
 .enlaces-footer a {
@@ -1044,6 +1158,40 @@ h1, h2, h3, h4, h5, h6 {
         transition: var(--transicion);
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     }
+
+    .menu-dropdown {
+        width: 100%;
+    }
+
+    .menu-dropdown-toggle {
+        width: 100%;
+        justify-content: space-between;
+        padding: 0;
+        font-size: 1.2rem;
+    }
+
+    .submenu {
+        position: static;
+        min-width: 0;
+        max-height: 0;
+        padding: 0;
+        margin-top: 0;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease, margin-top 0.3s ease;
+    }
+
+    .menu-dropdown.abierto .submenu {
+        max-height: 420px;
+        padding: 12px 0 4px;
+        margin-top: 10px;
+    }
     
     .menu.activo {
         right: 0;
@@ -1057,6 +1205,17 @@ h1, h2, h3, h4, h5, h6 {
     .menu a {
         display: block;
         font-size: 1.2rem;
+    }
+
+    .submenu a {
+        padding: 10px 0 10px 18px;
+        white-space: normal;
+        font-size: 1rem;
+    }
+
+    .submenu a:hover,
+    .submenu a.activo {
+        background: transparent;
     }
 
     .menu .boton,
