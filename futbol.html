@@ -457,8 +457,21 @@
                     </div>
                 </div>
             </div>
-            
+        </div>
+    </section>
+    <section class="seccion fondo-blanco fixture-section" id="fixture" aria-labelledby="fixture-title">
+        <div class="contenedor">
+            <div class="fixture-header">
+                <h2 class="titulo-seccion" id="fixture-title">Fixture Completo</h2>
+                <h3 class="fixture-season-heading" id="fixture-season-heading">Temporada actual</h3>
+                <p class="fixture-season-copy">Consultá todos los partidos de la temporada del primer equipo, con fecha, rival y condición de juego.</p>
+            </div>
 
+            <div class="fixture-panel">
+                <div id="fixture-complete-feedback" class="estado-contenido">Cargando fixture...</div>
+                <div class="fixture-lista" id="fixture-complete-list" hidden></div>
+            </div>
+        </div>
     </section>
     <section class="seccion fondo-gris">
         <div class="contenedor">
@@ -687,6 +700,9 @@
     </div>
 </footer>
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="js/fixture-api.js"></script>
+    <script src="js/futbol-fixture.js"></script>
     <script>
   
     document.addEventListener('DOMContentLoaded', function() {

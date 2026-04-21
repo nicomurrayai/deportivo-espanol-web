@@ -423,7 +423,21 @@
         </div>
     </section>
 
-  
+    <section class="seccion fondo-blanco fixture-section" aria-labelledby="fixture-home-title">
+        <div class="contenedor">
+            <h2 class="titulo-seccion" id="fixture-home-title">Fixture</h2>
+            <p class="descripcion-seccion">Seguí los próximos compromisos del Deportivo Español y accedé al calendario completo de la temporada.</p>
+
+            <div class="fixture-panel">
+                <div id="home-fixture-feedback" class="estado-contenido">Cargando fixture...</div>
+                <div class="fixture-lista" id="home-fixture-list" hidden></div>
+                <div class="fixture-cta">
+                    <a href="futbol.html#fixture" class="boton boton-rojo">Ver calendario completo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="seccion fondo-blanco">
         <div class="contenedor" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
             <div style="flex: 1; min-width: 300px; background: var(--color-rojo); color: var(--color-blanco); border-radius: 20px; padding: 40px 30px; display: flex; flex-direction: column; align-items: flex-start;">
@@ -642,7 +656,9 @@
     });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="js/fixture-api.js"></script>
     <script src="js/noticias-api.js"></script>
+    <script src="js/index-fixture.js"></script>
     <script src="js/index-noticias.js"></script>
 </body>
 </html>
