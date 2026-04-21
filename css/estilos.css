@@ -426,17 +426,6 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transicion);
 }
 
-.menu-dropdown-toggle::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--color-rojo);
-    transition: var(--transicion);
-}
-
 .menu a:hover::after {
     width: 100%;
 }
@@ -445,14 +434,12 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
 }
 
-.menu-dropdown:hover .menu-dropdown-toggle::after,
-.menu-dropdown:focus-within .menu-dropdown-toggle::after,
-.menu-dropdown-toggle.activo::after,
-.menu-dropdown-toggle[aria-expanded="true"]::after {
-    width: 100%;
-}
-
-.menu-dropdown-toggle.activo {
+.menu-dropdown:hover .menu-dropdown-toggle,
+.menu-dropdown:focus-within .menu-dropdown-toggle,
+.menu-dropdown-toggle:hover,
+.menu-dropdown-toggle:focus-visible,
+.menu-dropdown-toggle.activo,
+.menu-dropdown-toggle[aria-expanded="true"] {
     color: var(--color-rojo);
 }
 
@@ -512,7 +499,7 @@ h1, h2, h3, h4, h5, h6 {
 .submenu a:hover,
 .submenu a.activo {
     color: var(--color-rojo);
-    background: rgba(170, 21, 27, 0.06);
+    background: transparent;
 }
 
 .boton-menu {
