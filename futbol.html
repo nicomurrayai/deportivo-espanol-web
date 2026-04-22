@@ -153,6 +153,234 @@
             display: block;
         }
 
+        .dt-section-heading {
+            max-width: 780px;
+            margin-bottom: 34px;
+        }
+
+        .dt-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 14px;
+            color: var(--color-rojo);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .dt-eyebrow::before {
+            content: "";
+            width: 38px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-rojo), rgba(170, 21, 27, 0.25));
+        }
+
+        .dt-card {
+            display: grid;
+            grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+            gap: 36px;
+            align-items: start;
+            padding: 36px;
+            border-radius: 28px;
+            background:
+                radial-gradient(circle at top left, rgba(170, 21, 27, 0.08), transparent 32%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 249, 250, 0.92));
+            box-shadow: 0 22px 48px rgba(29, 29, 29, 0.1);
+        }
+
+        .dt-media {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .dt-photo-frame {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            aspect-ratio: 4 / 5;
+            min-height: 430px;
+            box-shadow: 0 18px 36px rgba(29, 29, 29, 0.16);
+            background: linear-gradient(160deg, rgba(170, 21, 27, 0.16), rgba(29, 29, 29, 0.04));
+        }
+
+        .dt-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .dt-photo-caption {
+            padding: 18px 20px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(170, 21, 27, 0.12);
+            box-shadow: 0 10px 22px rgba(29, 29, 29, 0.06);
+        }
+
+        .dt-photo-caption p {
+            margin: 10px 0 0;
+            color: var(--color-gris-oscuro);
+            line-height: 1.55;
+        }
+
+        .dt-role-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background-color: rgba(170, 21, 27, 0.1);
+            color: var(--color-rojo);
+            font-size: 0.86rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .dt-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .dt-kicker {
+            display: inline-flex;
+            width: fit-content;
+            padding: 7px 14px;
+            border-radius: 999px;
+            background-color: rgba(29, 29, 29, 0.06);
+            color: var(--color-negro);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .dt-name {
+            margin: 0;
+            font-size: clamp(2rem, 3.2vw, 3rem);
+            line-height: 1.02;
+            color: var(--color-negro);
+        }
+
+        .dt-bio {
+            margin: 0;
+            font-size: 1.06rem;
+            line-height: 1.8;
+            color: rgba(29, 29, 29, 0.9);
+        }
+
+        .dt-bio strong {
+            color: var(--color-rojo);
+        }
+
+        .dt-highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .dt-highlight {
+            padding: 20px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(170, 21, 27, 0.1);
+            box-shadow: 0 10px 24px rgba(29, 29, 29, 0.06);
+        }
+
+        .dt-highlight-label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--color-rojo);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .dt-highlight strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            color: var(--color-negro);
+        }
+
+        .dt-highlight p {
+            margin: 0;
+            color: var(--color-gris-oscuro);
+            line-height: 1.65;
+        }
+
+        .dt-timeline {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .dt-timeline-column {
+            padding: 22px;
+            border-radius: 22px;
+            background-color: rgba(29, 29, 29, 0.03);
+            border: 1px solid rgba(29, 29, 29, 0.08);
+        }
+
+        .dt-timeline-column h4 {
+            margin: 0 0 18px;
+            color: var(--color-negro);
+            font-size: 1.08rem;
+        }
+
+        .dt-timeline-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .dt-timeline-list li {
+            display: grid;
+            grid-template-columns: 106px 1fr;
+            gap: 14px;
+            align-items: start;
+            padding-top: 14px;
+            border-top: 1px solid rgba(29, 29, 29, 0.08);
+        }
+
+        .dt-timeline-list li:first-child {
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .dt-timeline-year {
+            color: var(--color-rojo);
+            font-weight: 700;
+        }
+
+        .dt-timeline-detail strong,
+        .dt-timeline-detail span {
+            display: block;
+        }
+
+        .dt-timeline-detail strong {
+            margin-bottom: 4px;
+            color: var(--color-negro);
+        }
+
+        .dt-timeline-detail span {
+            color: var(--color-gris-oscuro);
+            line-height: 1.5;
+        }
+
+        .staff-imagen-dt img {
+            object-position: center 18%;
+        }
+
         .calendario {
             background-color: var(--color-blanco);
             border-radius: var(--borde-radio);
@@ -242,6 +470,21 @@
             .categorias-lista {
                 grid-template-columns: 1fr;
             }
+
+            .dt-card {
+                grid-template-columns: 1fr;
+            }
+
+            .dt-media {
+                max-width: 390px;
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .dt-highlight-grid,
+            .dt-timeline {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -284,6 +527,20 @@
                 flex-direction: column;
                 gap: 10px;
                 align-items: center;
+            }
+
+            .dt-card {
+                padding: 24px;
+                gap: 24px;
+            }
+
+            .dt-photo-frame {
+                min-height: 360px;
+            }
+
+            .dt-timeline-list li {
+                grid-template-columns: 1fr;
+                gap: 6px;
             }
         }
 
@@ -333,6 +590,35 @@
       }
       .staff-info {
         padding: 10px 6px !important;
+      }
+      .dt-section-heading {
+        margin-bottom: 20px !important;
+      }
+      .dt-card {
+        padding: 16px !important;
+        border-radius: 18px !important;
+        gap: 18px !important;
+      }
+      .dt-photo-frame {
+        min-height: 280px !important;
+        border-radius: 18px !important;
+      }
+      .dt-photo-caption,
+      .dt-highlight,
+      .dt-timeline-column {
+        padding: 14px !important;
+        border-radius: 16px !important;
+      }
+      .dt-name {
+        font-size: 1.8rem !important;
+      }
+      .dt-bio {
+        font-size: 0.98rem !important;
+        line-height: 1.7 !important;
+      }
+      .dt-highlight-grid,
+      .dt-timeline {
+        gap: 12px !important;
       }
       .titulo-seccion {
         font-size: 1.3rem !important;
@@ -450,13 +736,164 @@
                 </div>
                 <div style="flex: 1; min-width: 300px;">
                     <h3 class="titulo-subseccion">Temporada 2026</h3>
-                    <p>Nuestro primer equipo afronta la temporada 2026 con el objetivo de consolidarse en los primeros puestos de la tabla y luchar por el campeonato. Con una mezcla de jugadores experimentados y jóvenes talentos surgidos de nuestras divisiones inferiores, el plantel dirigido por el entrenador Javier Martínez busca desarrollar un fútbol ofensivo y vistoso.</p>
+                    <p>Nuestro primer equipo afronta la temporada 2026 con el objetivo de consolidarse en los primeros puestos de la tabla y luchar por el campeonato. Con una mezcla de jugadores experimentados y jóvenes talentos surgidos de nuestras divisiones inferiores, el plantel dirigido por el entrenador Nestor Fernandez busca desarrollar un fútbol ofensivo y vistoso.</p>
                     <p>El equipo va a estar entrenando siempre, preparándose física y tácticamente para los partidos que se disputan los fines de semana en el Estadio España.</p>
                     <div style="margin-top: 20px;">
                         <a href="plantel.html" class="boton boton-rojo">Conocé al plantel</a>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+    <section class="seccion fondo-gris">
+        <div class="contenedor">
+            <div class="dt-section-heading">
+                <p class="dt-eyebrow">Primer Equipo</p>
+                <h2 class="titulo-seccion">Director Técnico</h2>
+                <p class="descripcion-seccion">Experiencia, identidad y sentido de pertenencia al frente del proyecto futbolístico 2026.</p>
+            </div>
+
+            <article class="dt-card">
+                <div class="dt-media">
+                    <div class="dt-photo-frame">
+                        <img src="img/futbol/nestor-fernandez-2026.jpg" alt="Néstor “Chafa” Fernández, Director Técnico de Deportivo Español">
+                    </div>
+                    <div class="dt-photo-caption">
+                        <span class="dt-role-pill">Primer Equipo 2026</span>
+                        <p>Actual Director Técnico del Club Deportivo Español y referente de un proyecto con pertenencia, trabajo y objetivos competitivos.</p>
+                    </div>
+                </div>
+
+                <div class="dt-content">
+                    <span class="dt-kicker">Director Técnico</span>
+                    <h3 class="dt-name">Néstor “Chafa” Fernández</h3>
+                    <p class="dt-bio">Néstor Fernández inició su carrera como jugador en Argentinos Juniors y desarrolló buena parte de su recorrido en el ascenso argentino, con un paso destacado por <strong>Deportivo Español</strong>, donde integró el plantel que logró el ascenso a la Nacional B en 2002 bajo la conducción de Hilario Bravi.</p>
+                    <p class="dt-bio">Como entrenador tuvo un paso interino por nuestra institución en 2020. Luego de sus experiencias en J. J. Urquiza y General Lamadrid, regresó a Deportivo Español a fines de 2025 y condujo al equipo al <strong>tercer puesto del campeonato</strong> y a la clasificación al reducido.</p>
+
+                    <div class="dt-highlight-grid">
+                        <div class="dt-highlight">
+                            <span class="dt-highlight-label">Como jugador</span>
+                            <strong>Ascenso 2002</strong>
+                            <p>Formó parte del plantel de Deportivo Español que consiguió el ascenso a la Nacional B.</p>
+                        </div>
+                        <div class="dt-highlight">
+                            <span class="dt-highlight-label">Como DT</span>
+                            <strong>Regreso al club</strong>
+                            <p>Volvió a la institución a fines de 2025 tras sus pasos por J. J. Urquiza y General Lamadrid.</p>
+                        </div>
+                        <div class="dt-highlight">
+                            <span class="dt-highlight-label">Temporada 2026</span>
+                            <strong>Tercer puesto y reducido</strong>
+                            <p>Condujo al primer equipo a ubicarse entre los protagonistas del campeonato y clasificar al reducido.</p>
+                        </div>
+                    </div>
+
+                    <div class="dt-timeline">
+                        <div class="dt-timeline-column">
+                            <h4>Trayectoria como jugador</h4>
+                            <ul class="dt-timeline-list">
+                                <li>
+                                    <span class="dt-timeline-year">1999 / 2000</span>
+                                    <div class="dt-timeline-detail">
+                                        <strong>Argentinos Juniors</strong>
+                                        <span>Inicio de su carrera profesional.</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="dt-timeline-year">2000 / 2002</span>
+                                    <div class="dt-timeline-detail">
+                                        <strong>Deportivo Español</strong>
+                                        <span>Consiguió el ascenso a la Nacional B en 2002.</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="dt-timeline-year">2003 / 2004</span>
+                                    <div class="dt-timeline-detail">
+                                        <strong>All Boys</strong>
+                                        <span>Continuidad en el ascenso argentino.</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="dt-timeline-year">2004 / 2006</span>
+                                    <div class="dt-timeline-detail">
+                                        <strong>Deportivo Armenio</strong>
+                                        <span>Primera etapa en la institución.</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="dt-timeline-year">2006 / 2007</span>
+                                    <div class="dt-timeline-detail">
+                                        <strong>Tristán Suárez</strong>
+                                        <span>Nuevo desafío en el fútbol metropolitano.</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="dt-timeline-year">2007 / 2010</span>
+                                    <div class="dt-timeline-detail">
+                                        <strong>Deportivo Armenio</strong>
+                                        <span>Segunda etapa en el club.</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="dt-timeline-year">2010 / 2014</span>
+                                    <div class="dt-timeline-detail">
+                                        <strong>Barracas Central</strong>
+                                        <span>Uno de los ciclos más extensos de su carrera como futbolista.</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="dt-timeline-year">2014 / 2015</span>
+                                    <div class="dt-timeline-detail">
+                                        <strong>San Miguel</strong>
+                                        <span>Experiencia en la etapa final de su carrera.</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="dt-timeline-year">2015 / 2016</span>
+                                    <div class="dt-timeline-detail">
+                                        <strong>Camioneros</strong>
+                                        <span>Cierre de su recorrido como jugador.</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="dt-timeline-column">
+                            <h4>Trayectoria como DT</h4>
+                            <ul class="dt-timeline-list">
+                                <li>
+                                    <span class="dt-timeline-year">2020</span>
+                                    <div class="dt-timeline-detail">
+                                        <strong>Deportivo Español</strong>
+                                        <span>Primer ciclo como Director Técnico interino.</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="dt-timeline-year">2025</span>
+                                    <div class="dt-timeline-detail">
+                                        <strong>J. J. Urquiza</strong>
+                                        <span>Continuidad en su desarrollo como entrenador.</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="dt-timeline-year">2025</span>
+                                    <div class="dt-timeline-detail">
+                                        <strong>General Lamadrid</strong>
+                                        <span>Nuevo paso antes de regresar al club.</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="dt-timeline-year">Desde fines de 2025</span>
+                                    <div class="dt-timeline-detail">
+                                        <strong>Deportivo Español</strong>
+                                        <span>Conducción del primer equipo con tercer puesto y clasificación al reducido.</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
     <section class="seccion fondo-blanco fixture-section" id="fixture" aria-labelledby="fixture-title">
@@ -599,13 +1036,13 @@
             
             <div class="staff-grid">
                 <div class="staff-card">
-                    <div class="staff-imagen">
-                        <img src="img/futbol/coach 1.png" alt="Director Técnico">
+                    <div class="staff-imagen staff-imagen-dt">
+                        <img src="img/futbol/nestor-fernandez-2026.jpg" alt="Néstor “Chafa” Fernández">
                     </div>
                     <div class="staff-info">
-                        <h3>Javier Martínez</h3>
+                        <h3>Néstor “Chafa” Fernández</h3>
                         <span class="staff-cargo">Director Técnico Primer Equipo</span>
-                        <p>Ex jugador profesional con amplia experiencia en dirección técnica. Al frente del primer equipo desde 2022.</p>
+                        <p>Ex jugador del club y actual entrenador del primer equipo. En 2026 condujo a Deportivo Español al tercer puesto y a la clasificación al reducido.</p>
                     </div>
                 </div>
                 
@@ -720,6 +1157,7 @@
         }
         animarAparicion('.categoria');
         animarAparicion('.equipo-card');
+        animarAparicion('.dt-card');
         animarAparicion('.staff-card');
     });
     </script>
