@@ -8,25 +8,59 @@ document.addEventListener('DOMContentLoaded', async function () {
         return;
     }
 
+    function renderRivalLogo(rivalName) {
+        const team = api.getFixtureTeamByName(rivalName);
+
+        if (!team) {
+            return `
+                <span class="fixture-home-rival-logo fixture-team-logo-fallback" aria-hidden="true">
+                    <i class="fas fa-shield-alt"></i>
+                </span>
+            `;
+        }
+
+        return `
+            <span class="fixture-home-rival-logo">
+                <img src="${api.escapeHtml(team.image_url)}" alt="Escudo de ${api.escapeHtml(team.nombre)}" loading="lazy" decoding="async">
+            </span>
+        `;
+    }
+
     function renderHomeMatchCard(partido) {
         const condicion = api.formatCondicion(partido.condicion);
         const isLocal = partido.condicion === 'local';
         const rivalLabel = isLocal ? 'Recibimos a' : 'Visitamos a';
         const metaClass = isLocal ? 'fixture-meta-home' : 'fixture-meta-away';
+        const horario = api.formatHora(partido.fecha_partido);
 
         return `
             <article class="fixture-item fixture-item-home">
                 <div class="fixture-home-top">
-                    <div class="fixture-fecha fixture-fecha-home">${api.escapeHtml(api.formatFecha(partido.fecha_partido))}</div>
-                    <span class="fixture-meta fixture-meta-home-chip ${metaClass}">${api.escapeHtml(condicion)}</span>
+                    <div class="fixture-fecha fixture-fecha-home">
+                        <i class="fas fa-calendar-days" aria-hidden="true"></i>
+                        <span>${api.escapeHtml(api.formatFecha(partido.fecha_partido))}</span>
+                    </div>
+                    <span class="fixture-meta fixture-meta-home-chip ${metaClass}">
+                        <i class="fas fa-location-dot" aria-hidden="true"></i>
+                        <span>${api.escapeHtml(condicion)}</span>
+                    </span>
                 </div>
                 <div class="fixture-home-body">
                     <span class="fixture-home-kicker">${api.escapeHtml(rivalLabel)}</span>
-                    <h3 class="fixture-rival fixture-rival-home">${api.escapeHtml(partido.rival)}</h3>
+                    <div class="fixture-home-rival-row">
+                        ${renderRivalLogo(partido.rival)}
+                        <h3 class="fixture-rival fixture-rival-home">${api.escapeHtml(partido.rival)}</h3>
+                    </div>
                     <div class="fixture-home-clubline">
                         <span class="fixture-home-club">${api.escapeHtml(clubName)}</span>
                         <span class="fixture-home-divider"></span>
                         <span class="fixture-home-subcopy">Próximo Partido</span>
+                    </div>
+                    <div class="fixture-home-data-row">
+                        <span class="fixture-home-data-pill">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            <span>${api.escapeHtml(horario)}</span>
+                        </span>
                     </div>
                 </div>
             </article>
