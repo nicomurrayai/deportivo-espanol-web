@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     };
 
     try {
-        const noticias = await api.fetchLatestNoticias(3);
+        const noticias = (await api.fetchLatestNoticias(3)).slice(0, 3);
 
         if (!noticias.length) {
             setFeedback('Todavia no hay noticias publicadas.', 'vacio');
