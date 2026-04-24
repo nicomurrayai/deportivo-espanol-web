@@ -27,10 +27,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     function renderHomeMatchCard(partido) {
-        const condicion = api.formatCondicion(partido.condicion);
         const isLocal = partido.condicion === 'local';
         const rivalLabel = isLocal ? 'Recibimos a' : 'Visitamos a';
-        const metaClass = isLocal ? 'fixture-meta-home' : 'fixture-meta-away';
         const horario = api.formatHora(partido.fecha_partido);
 
         return `
@@ -40,10 +38,6 @@ document.addEventListener('DOMContentLoaded', async function () {
                         <i class="fas fa-calendar-days" aria-hidden="true"></i>
                         <span>${api.escapeHtml(api.formatFecha(partido.fecha_partido))}</span>
                     </div>
-                    <span class="fixture-meta fixture-meta-home-chip ${metaClass}">
-                        <i class="fas fa-location-dot" aria-hidden="true"></i>
-                        <span>${api.escapeHtml(condicion)}</span>
-                    </span>
                 </div>
                 <div class="fixture-home-body">
                     <span class="fixture-home-kicker">${api.escapeHtml(rivalLabel)}</span>

@@ -27,11 +27,9 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     function renderMatchCard(partido) {
-        const condicion = api.formatCondicion(partido.condicion);
         const isLocal = partido.condicion === 'local';
         const homeTeam = isLocal ? clubName : partido.rival;
         const awayTeam = isLocal ? partido.rival : clubName;
-        const metaClass = isLocal ? 'fixture-meta-home' : 'fixture-meta-away';
         const horario = api.formatHora(partido.fecha_partido);
 
         return `
@@ -41,10 +39,6 @@ document.addEventListener('DOMContentLoaded', async function () {
                         <i class="fas fa-calendar-days" aria-hidden="true"></i>
                         <span>${api.escapeHtml(api.formatFecha(partido.fecha_partido))}</span>
                     </div>
-                    <span class="fixture-meta fixture-meta-complete ${metaClass}">
-                        <i class="fas fa-location-dot" aria-hidden="true"></i>
-                        <span>${api.escapeHtml(condicion)}</span>
-                    </span>
                 </div>
                 <div class="fixture-duelo">
                     <div class="fixture-equipo fixture-equipo-home">
