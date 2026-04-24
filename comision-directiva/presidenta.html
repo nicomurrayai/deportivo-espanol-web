@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="María Sol Méndez, primera mujer presidenta del Club Deportivo Español.">
+    <meta name="keywords" content="María Sol Méndez, presidenta, comisión directiva, Club Deportivo Español">
+    <title>María Sol Méndez - Comisión Directiva | Club Deportivo Español</title>
+    <link rel="icon" href="../img/escudo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        :root {
+            --color-rojo: #AA151B;
+            --color-blanco: #fff;
+            --color-negro: #1d1d1d;
+            --color-gris-claro: #f8f9fa;
+            --color-gris: #e9ecef;
+            --color-gris-oscuro: #6c757d;
+            --color-amarillo: #fbff00;
+            --sombra: 0 4px 6px rgba(0,0,0,.1);
+            --borde-radio: 8px;
+        }
+
+        .presidenta-articulo {
+            display: grid;
+            gap: 34px;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .presidenta-portada {
+            display: grid;
+            grid-template-columns: minmax(280px, 390px) 1fr;
+            overflow: hidden;
+            background: var(--color-blanco);
+            border: 1px solid rgba(170,21,27,.12);
+            border-radius: 18px;
+            box-shadow: var(--sombra);
+        }
+
+        .presidenta-portada img {
+            width: 100%;
+            height: 100%;
+            min-height: 360px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .presidenta-portada-contenido {
+            display: grid;
+            align-content: center;
+            gap: 16px;
+            padding: 38px;
+        }
+
+        .presidenta-etiqueta {
+            width: fit-content;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background-color: rgba(170,21,27,.1);
+            color: var(--color-rojo);
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
+        .presidenta-portada h2 {
+            margin: 0;
+            color: var(--color-negro);
+            font-size: 2.25rem;
+            line-height: 1.12;
+        }
+
+        .presidenta-portada p {
+            margin: 0;
+            color: var(--color-gris-oscuro);
+            line-height: 1.7;
+        }
+
+        .presidenta-cuerpo {
+            display: grid;
+            gap: 24px;
+            color: var(--color-negro);
+            font-size: 1.02rem;
+            line-height: 1.75;
+        }
+
+        .presidenta-cuerpo h2 {
+            margin: 10px 0 0;
+            color: var(--color-rojo);
+            font-size: 1.65rem;
+        }
+
+        .presidenta-cuerpo p {
+            margin: 0;
+        }
+
+        .presidenta-destacado {
+            margin: 4px 0;
+            padding: 24px 28px;
+            border-left: 5px solid var(--color-rojo);
+            background: linear-gradient(135deg, rgba(170,21,27,.08), rgba(255,255,255,.96));
+            border-radius: 14px;
+            color: var(--color-negro);
+            font-weight: 600;
+        }
+
+        .presidenta-volver {
+            margin-top: 8px;
+        }
+
+        @media (max-width: 900px) {
+            .presidenta-portada {
+                grid-template-columns: 1fr;
+            }
+
+            .presidenta-portada img {
+                max-height: 390px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .presidenta-portada-contenido {
+                padding: 26px 20px;
+            }
+
+            .presidenta-portada h2 {
+                font-size: 1.75rem;
+            }
+
+            .presidenta-destacado {
+                padding: 20px;
+            }
+
+            .presidenta-volver .boton {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="cabecera">
+        <div class="contenedor">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../img/escudo.png" alt="Logo Club Deportivo Español">
+                    <span class="logo-nombre">Club Deportivo<br>Español</span>
+                </a>
+            </div>
+            <nav class="navegacion">
+                <button class="boton-menu" aria-label="Abrir menú">
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                </button>
+                <ul class="menu">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li class="menu-dropdown">
+                        <button class="menu-dropdown-toggle activo" type="button" aria-expanded="false" aria-haspopup="true">
+                            <span>Institucional</span>
+                            <i class="fas fa-chevron-down menu-dropdown-icono" aria-hidden="true"></i>
+                        </button>
+                        <ul class="submenu" aria-label="Subsecciones institucionales">
+                            <li><a href="../historia/index.html">Historia</a></li>
+                            <li><a href="../valores/index.html">Valores</a></li>
+                            <li><a href="../comision-directiva/index.html" class="activo">Comisión Directiva</a></li>
+                            <li><a href="../subcomisiones/index.html">Subcomisiones</a></li>
+                            <li><a href="../instalaciones/index.html">Instalaciones</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../futbol.html">Fútbol Profesional</a></li>
+                    <li><a href="../futbol-amateur.html">Fútbol Amateur</a></li>
+                    <li><a href="../noticias.html">Noticias</a></li>
+                    <li><a href="../contacto.html">Contacto</a></li>
+                    <li><a href="../socios.html" class="boton boton-rojo" style="background-color: var(--color-rojo); color: var(--color-amarillo); border: 2px solid var(--color-rojo);">Hacete Socio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-seccion" style="background-image:url('../img/noticias/legislatura.jpg');background-position:center 42%;">
+        <div class="contenedor">
+            <h1 class="titulo-principal">María Sol Méndez</h1>
+            <p class="subtitulo">La primera mujer en presidir el Club Deportivo Español.</p>
+        </div>
+    </section>
+
+    <main class="seccion fondo-blanco">
+        <div class="contenedor">
+            <article class="presidenta-articulo">
+                <div class="presidenta-portada">
+                    <img src="../img/el club/presidenta-maria-sol-mendez.png" alt="María Sol Méndez con la camiseta de Deportivo Español">
+                    <div class="presidenta-portada-contenido">
+                        <span class="presidenta-etiqueta">Comisión Directiva</span>
+                        <h2>Histórico: Deportivo Español eligió por primera vez a una mujer como presidenta</h2>
+                        <p>María Sol Méndez ganó las elecciones, se impuso sobre el oficialismo y comenzará una nueva etapa al frente del club del Bajo Flores.</p>
+                    </div>
+                </div>
+
+                <div class="presidenta-cuerpo">
+                    <p>Deportivo Español vivió una jornada que quedará marcada en su historia institucional. En las elecciones que se realizaron este domingo 8 de marzo, la dirigente y ex legisladora porteña María Sol Méndez se convirtió en la primera mujer en ocupar el cargo más alto desde la fundación de la institución. El Gallego, que actualmente compite en la Primera C, inicia así un nuevo ciclo dirigencial tras la victoria de la lista opositora.</p>
+
+                    <p>Méndez encabezó la agrupación Español Renace, que logró imponerse en las urnas frente a la lista oficialista Español de Primera. La elección coincidió con el Día Internacional de la Mujer, lo que le otorgó un simbolismo especial a la jornada. Con su triunfo, pasó a formar parte de un grupo reducido dentro del fútbol argentino y se convirtió en la séptima mujer en presidir un club afiliado a la AFA.</p>
+
+                    <h2>¿Quién es María Sol Méndez?</h2>
+
+                    <p>María Sol Méndez tiene 38 años y cuenta con experiencia en la gestión pública. Durante los últimos años se desempeñó como legisladora de la Ciudad de Buenos Aires, donde integró distintos espacios vinculados a políticas sociales y proyectos institucionales. Su vínculo con Deportivo Español, sin embargo, no surgió en este proceso electoral. De hecho, la dirigente mantiene desde hace tiempo una relación cercana con el club y con su comunidad de socios.</p>
+
+                    <p>Uno de los puntos más destacados de su recorrido reciente fue su participación en la Ley de Reparación Histórica vinculada a los terrenos que posee la institución en la Ciudad. El proyecto, aprobado en la Legislatura en noviembre de 2025, permitió que la institución recuperara el uso de una parte del predio que había quedado en disputa con el Gobierno porteño.</p>
+
+                    <p>Esa norma estableció que Español pueda utilizar ese sector por un período de 20 años, lo que representa una herramienta clave para planificar el desarrollo de infraestructura y actividades deportivas. En aquel momento, Méndez había afirmado que la medida podía ser determinante para el futuro del club.</p>
+
+                    <div class="presidenta-destacado">"Esto le va a permitir a Español volver a renacer, sin dudas", señaló tras la aprobación de la ley.</div>
+
+                    <h2>Las ideas que plantea la nueva conducción</h2>
+
+                    <p>Entre los ejes que mencionó para su gestión aparecen fortalecer la vida social del club, recuperar la participación de los socios históricos y aprovechar el predio para ampliar las actividades deportivas. También remarcó la importancia de reconstruir la identidad del club y generar condiciones para que el proyecto deportivo vuelva a crecer.</p>
+
+                    <p>Con un respaldo mayoritario en las urnas, la nueva presidenta asumirá el desafío de conducir a un club con fuerte identidad en el ascenso argentino. El objetivo será ordenar la institución, recuperar su estructura y empezar a construir el camino para que Deportivo Español vuelva a ser "protagonista".</p>
+                </div>
+
+                <div class="presidenta-volver">
+                    <a href="index.html" class="boton boton-rojo">Volver a Comisión Directiva</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor">
+            <div class="columnas-footer">
+                <div class="columna-footer">
+                    <div class="logo-footer">
+                        <img src="../img/escudo.png" alt="Logo Club Deportivo Español">
+                    </div>
+                    <p>Más de 65 años fomentando el deporte y los valores que lo acompañan en nuestra comunidad.</p>
+                    <div class="redes-sociales-footer">
+                        <a href="https://www.facebook.com/CDEspanol1956/?locale=es_LA" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/clubdeportivoespanol/?hl=es" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/c/FuriaEspañolaTV" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="columna-footer">
+                    <h3>Enlaces rápidos</h3>
+                    <ul class="enlaces-footer">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../futbol.html">Fútbol Profesional</a></li>
+                        <li><a href="../futbol-amateur.html">Fútbol Amateur</a></li>
+                        <li><a href="../noticias.html">Noticias</a></li>
+                        <li><a href="../contacto.html">Contacto</a></li>
+                        <li><a href="../socios.html">Socios</a></li>
+                        <li class="titulo-enlaces-footer">Institucional</li>
+                        <li><a href="../historia/index.html">Historia</a></li>
+                        <li><a href="../valores/index.html">Valores</a></li>
+                        <li><a href="../comision-directiva/index.html">Comisión Directiva</a></li>
+                        <li><a href="../subcomisiones/index.html">Subcomisiones</a></li>
+                        <li><a href="../instalaciones/index.html">Instalaciones</a></li>
+                    </ul>
+                </div>
+                <div class="columna-footer">
+                    <h3>Contacto</h3>
+                    <ul class="info-contacto">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Santiago de Compostela 3801, CABA</li>
+                        <li><i class="fas fa-phone"></i> (011) 4567-8900</li>
+                        <li><i class="fas fa-envelope"></i> info@clubdeportivo.com</li>
+                        <li><i class="fas fa-clock"></i> Lun-Vie: 8:00 - 22:00, Sáb-Dom: 9:00 - 20:00</li>
+                    </ul>
+                </div>
+                <div class="columna-footer">
+                    <h3>Ubicación</h3>
+                    <div style="border-radius: var(--borde-radio); overflow: hidden; height: 200px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.237381788609!2d-58.44916668499998!3d-34.593453980458675!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc3e56f2fd6b1%3A0xe8b3e6ded19f5!2sAv.%20Santiago%20de%20Compostela%203801%2C%20CABA!5e0!3m2!1ses!2sar!4v1660000000000!5m2!1ses!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Club Deportivo Español. Todos los derechos reservados.</p>
+                <ul class="enlaces-legales">
+                    <li><a href="../terminos-y-condiciones.html">Términos y condiciones</a></li>
+                    <li><a href="../privacidad.html">Política de privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>
